@@ -11,7 +11,7 @@ README: «WP сайт Большого Алтая / Big Altat Site».
 - **PHP** (шаблоны WordPress, `functions.php` ~72 КБ — основная логика темы)
 - **WordPress Theme API**: шаблоны иерархии (`front-page.php`, `page-*.php`, `single-*.php`, `archive-*.php`, `header.php`, `footer.php`, `404.php`)
 - **ACF (Advanced Custom Fields)**: поля через `get_field()/the_field()`, локальные группы полей в `acf-json/`
-- **CF7 (Contact Form 7)**: кастомная валидация и обработка форм (`wpcf7_*` фильтры/события)
+- ~~CF7 (Contact Form 7)~~: **выведен из использования** — все живые формы работают напрямую через Bitrix24 REST; мёртвый CF7-код удалён из `functions.php`, попап в футере переведён на BADS-форму `components/forms/b24-form.php`. Плагин можно деактивировать в админке.
 - **Bitrix24 REST API**: лиды и подписки отправляются через AJAX-обработчики темы в воронку CRM (`bolshoyaltay.bitrix24.ru`, webhook с ID пользователя 52 зашит прямо в `functions.php`)
 - **Сторонние JS-библиотеки** (vendored в `/js`): Swiper, @fancyapps/ui (Fancybox), vanilla-web-accordion, jQuery
 - Собственная дизайн-система **BADS (Big Altay Design System)** с токенами и UI-компонентами
@@ -20,7 +20,7 @@ README: «WP сайт Большого Алтая / Big Altat Site».
 
 ```
 /workspace
-├── functions.php          # Ядро темы: CPT, enqueue, AJAX, CF7, Bitrix24, шорткоды, редактор
+├── functions.php          # Ядро темы: CPT, enqueue, AJAX, Bitrix24, шорткоды, редактор
 ├── header.php / footer.php
 ├── front-page.php         # Главная страница
 ├── page-*.php             # Шаблоны страниц (about, contacts, corp, courses, premium,
@@ -76,7 +76,7 @@ README: «WP сайт Большого Алтая / Big Altat Site».
 - В BADS-файлах используется шапка-комментарий вида `Big Altay Design System (BADS) / <назначение>` — придерживайтесь этого стиля при создании новых файлов системы.
 
 ### Прочее
-- Интеграция CF7: кастомная валидация, снятие обёрток `wpcf7-form-control-wrap`, JS-события.
+- Contact Form 7 больше не используется: формы — нативные BADS (`components/forms/b24-form.php`) с AJAX-отправкой `send_b24_lead` в Bitrix24. Остатки CF7-шорткодов допускаются только на архивных/устаревших страницах (контент в БД, не в коде темы).
 - Класс кастомных кнопок/форматирований TinyMCE (`js/custom-editor-button.js`, `faq-mce.js`, шорткоды генерируются динамически через `add_shortcode`).
 - Сидер направлений лечения: `inc/seeders/seed-directions.php` + данные в трёх частях.
 - Репозиторий git: одна ветка `main`, история урезана (grafted).
@@ -95,7 +95,7 @@ README: «WP сайт Большого Алтая / Big Altat Site».
 
 1. Системной сборки нет: правки PHP/CSS/JS применяются напрямую; убедитесь, что синтаксис валиден:
    `php -l path/to/file.php`
-2. Для локального просмотра нужен WordPress: скопируйте тему в `wp-content/themes/` и активируйте; требуются плагины **ACF (Pro)**, **Contact Form 7**.
+2. Для локального просмотра нужен WordPress: скопируйте тему в `wp-content/themes/` и активируйте; требуется плагин **ACF (Pro)**; Contact Form 7 более не требуется (формы — нативные BADS + Bitrix24).
 3. Новые UI-элементы добавляйте как компонент/блок BADS (папки `components/` или `blocks/` + CSS/JS в `assets/` + регистрация в соответствующем `inc/enqueue/*.php`), а не инлайн-стилями.
 4. Перед коммитом проверяйте, что не сломаны хуки `init` (CPT) и `wp_ajax_*` обработчики.
 

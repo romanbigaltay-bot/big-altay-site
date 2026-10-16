@@ -195,25 +195,19 @@ $vk_url = get_field('vk', 2) ?: 'https://vk.com/bolshoyaltay';
                 <section class="popup-form" id="popup-form">
                     <div class="popup-form__title">Оставьте заявку, и мы подберем для вас предложение</div>
                     <div class="popup-form__box">
-                        <?php echo do_shortcode('[contact-form-7 id="538"]'); ?>
+                        <?php
+                        // Contact Form 7 (id=538) заменён на нативную BADS-форму с отправкой напрямую в Bitrix24.
+                        get_template_part('components/forms/b24-form', null, [
+                            'form_id'        => 'popup-form-538',
+                            'button_text'    => 'Отправить заявку',
+                            'success_target' => 'popup-form',
+                            'centered'       => true,
+                        ]);
+                        ?>
                     </div>
                     <div class="popup-form-success__message">
                         <strong>Спасибо за заявку!</strong><br/>Она будет обработана в ближайшее время
                     </div>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            try {
-                                var privacyCheckbox = document.getElementById('privacy-538');
-                                var submitButton = document.getElementById('privacy-btn-538');
-
-                                privacyCheckbox.addEventListener('change', function () {
-                                    submitButton.disabled = !privacyCheckbox.checked;
-                                });
-                                submitButton.disabled = !privacyCheckbox.checked;
-                            } catch (e) {
-                            }
-                        });
-                    </script>
                 </section>
             </div>
         </div>

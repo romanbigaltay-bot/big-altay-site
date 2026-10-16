@@ -106,98 +106,11 @@ add_filter('excerpt_length', function () {
 add_theme_support('post-thumbnails');
 add_image_size('header', 1800, 1000, true);
 
-add_filter('wpcf7_form_elements', function ($content) {
-    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
-    return $content;
-});
-
-add_filter('wpcf7_validate', 'custom_wpcf7_validate', 10, 2);
-
-function custom_wpcf7_validate($result, $tags) {
-    $submission = WPCF7_Submission::get_instance();
-    if ($submission) {
-        $posted_data = $submission->get_posted_data();
-
-        // Валидация имени
-        if (isset($posted_data['your-name'])) {
-            $name = trim($posted_data['your-name']);
-            if (!preg_match('/^[A-Za-zА-Яа-яЁё\s]+$/u', $name)) {
-                $result->invalidate('your-name', 'Имя содержит недопустимые символы.'); ?>
-            <?php }
-        }
-
-        // Валидация телефона
-        if (isset($posted_data['your-phone'])) {
-            $phone = trim($posted_data['your-phone']);
-            if (!preg_match('/^\+7\s\(\d{3}\)\s\d{3}\s\d{4}$/', $phone)) {
-                $result->invalidate('your-phone', 'Некорректный формат телефона.');
-            }
-        }
-    }
-
-    return $result;
-}
-
-add_action('wp_footer', 'form_wp_footer');
-function form_wp_footer() {
-    ?>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            // Обработка ошибок валидации
-            document.addEventListener('wpcf7invalid', function (e) {
-                const form = e.target;
-
-                // Проверяем, есть ли класс "invalid" у формы
-                if (!form.classList.contains('invalid')) {
-                    return; // Если форма не имеет класса "invalid", выходим
-                }
-
-                // Находим кастомные элементы ошибок
-                const nameError = form.querySelector('#name-error');
-                const phoneError = form.querySelector('#phone-error');
-
-                // Скрываем все ошибки по умолчанию
-                if (nameError) nameError.style.display = 'none';
-                if (phoneError) phoneError.style.display = 'none';
-
-                // Проверяем, есть ли ошибки для полей
-                const nameField = form.querySelector('[name="your-name"]');
-                const phoneField = form.querySelector('[name="your-phone"]');
-
-                if (nameField && nameError) {
-                    nameError.style.display = 'block'; // Показываем ошибку имени
-                }
-                if (phoneField && phoneError) {
-                    phoneError.style.display = 'block'; // Показываем ошибку телефона
-                }
-            });
-
-            // Обработка успешной отправки
-            document.addEventListener('wpcf7mailsent', function (event) {
-                if ('6' == event.detail.contactFormId) {
-                    document.getElementById("form-contacts").classList.add('lead-form-success');
-                }
-                if ('537' == event.detail.contactFormId) {
-                    document.getElementById("form-contacts").classList.add('lead-form-success');
-                }
-                if ('538' == event.detail.contactFormId) {
-                    document.getElementById("popup-form").classList.add('popup-form-success');
-                }
-                if ('562' == event.detail.contactFormId) {
-                    document.getElementById("online-booking").classList.add('online-booking-success');
-                }
-                if ('3305' == event.detail.contactFormId) {
-                    document.getElementById("form-contacts-popup").classList.add('lead-form-success');
-                }
-                if ('4257' == event.detail.contactFormId) {
-                    console.log('Form 4257 submitted'); // Отладка
-                    document.getElementById("form-contacts-popup-same").classList.add('lead-form-success');
-                }
-            }, false);
-        });
-    </script>
-    <?php
-}
+//-----------------------------------------------------------------------------------------------------------
+# Contact Form 7 выведен из использования: все живые формы темы работают напрямую
+# через Bitrix24 REST (AJAX send_b24_lead). Мёртвый код CF7 (wpcf7_* фильтры,
+# кастомная валидация custom_wpcf7_validate, JS-события wpcf7invalid/wpcf7mailsent) удалён.
+//-----------------------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------------------
 # Добавляет SVG в список разрешенных для загрузки файлов.
