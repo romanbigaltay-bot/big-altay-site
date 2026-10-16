@@ -1,0 +1,98 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Foundation / Spacing
+   ========================================================== */
+
+:root {
+
+
+    /* ======================================================
+       Base Spacing Scale
+
+       Используется всеми компонентами системы.
+       Не использовать произвольные значения вне Foundation.
+       ====================================================== */
+
+
+    --space-3xs: 2px;
+
+    --space-2xs: 4px;
+
+    --space-xs: 8px;
+
+    --space-sm: 12px;
+
+    --space-md: 16px;
+
+    --space-lg: 24px;
+
+    --space-xl: 32px;
+
+    --space-2xl: 48px;
+
+    --space-3xl: 64px;
+
+    --space-4xl: 96px;
+
+    --space-5xl: 128px;
+
+
+
+    /* ======================================================
+       Component Internal Spacing
+
+       Внутренние отступы компонентов.
+       ====================================================== */
+
+
+    --space-component-xs: var(--space-xs);
+
+    --space-component-sm: var(--space-sm);
+
+    --space-component-md: var(--space-md);
+
+    --space-component-lg: var(--space-lg);
+
+    --space-component-xl: var(--space-xl);
+
+
+
+    /* ======================================================
+       Section Spacing
+
+       Вертикальный ритм крупных секций страницы.
+       ====================================================== */
+
+
+    --space-section-sm: var(--space-2xl);
+
+    --space-section-md: var(--space-3xl);
+
+    --space-section-lg: var(--space-4xl);
+
+    --space-section-xl: var(--space-5xl);
+
+
+
+    /* ======================================================
+       Layout Gaps
+
+       Расстояния между элементами layout-системы.
+       ====================================================== */
+
+
+    --gap-xs: var(--space-xs);
+
+    --gap-sm: var(--space-sm);
+
+    --gap-md: var(--space-lg);
+
+    --gap-lg: var(--space-xl);
+
+    --gap-xl: var(--space-2xl);
+
+    --gap-section: var(--space-4xl);
+
+
+
+}

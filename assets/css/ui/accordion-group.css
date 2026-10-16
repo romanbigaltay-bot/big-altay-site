@@ -1,0 +1,74 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Accordion Group
+   ========================================================== */
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-accordion-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Gap
+|--------------------------------------------------------------------------
+*/
+
+.bads-accordion-group--gap-none {
+    gap: 0;
+}
+
+.bads-accordion-group--gap-xs {
+    gap: var(--space-xs);
+}
+
+.bads-accordion-group--gap-sm {
+    gap: var(--space-sm);
+}
+
+.bads-accordion-group--gap-md {
+    gap: var(--space-md);
+}
+
+.bads-accordion-group--gap-lg {
+    gap: var(--space-lg);
+}
+
+.bads-accordion-group--gap-xl {
+    gap: var(--space-xl);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Stretch
+|--------------------------------------------------------------------------
+*/
+
+.bads-accordion-group > * {
+    width: 100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 768px) {
+
+    .bads-accordion-group--gap-lg {
+        gap: var(--space-md);
+    }
+
+    .bads-accordion-group--gap-xl {
+        gap: var(--space-lg);
+    }
+
+}

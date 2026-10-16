@@ -1,0 +1,172 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Radio
+   ========================================================== */
+
+/* ==========================================================
+   Root
+   ========================================================== */
+
+.bads-radio {
+    width: 100%;
+}
+
+/* ==========================================================
+   Label
+   ========================================================== */
+
+.bads-radio__label {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ==========================================================
+   Native Control
+   ========================================================== */
+
+.bads-radio__control {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================
+   Circle
+   ========================================================== */
+
+.bads-radio__circle {
+    position: relative;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-surface);
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .20s ease;
+}
+
+/* ==========================================================
+   Dot
+   ========================================================== */
+
+.bads-radio__circle::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+	
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    transition:
+        opacity .18s ease,
+        transform .18s ease;
+}
+
+/* ==========================================================
+   Text
+   ========================================================== */
+
+.bads-radio__text {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+    transition: color var(--transition-fast, .15s ease);
+}
+
+/* ==========================================================
+   Hover
+   ========================================================== */
+
+.bads-radio__label:hover .bads-radio__circle {
+    border-color: var(--color-primary);
+}
+
+.bads-radio__label:hover .bads-radio__text {
+    color: var(--color-primary, #019fde);
+}
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+.bads-radio__control:focus-visible + .bads-radio__circle {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(var(--brand-primary-rgb), .10);
+}
+
+/* ==========================================================
+   Checked
+   ========================================================== */
+
+.bads-radio__control:checked + .bads-radio__circle {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.bads-radio__control:checked + .bads-radio__circle::after {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+.bads-radio__control:checked ~ .bads-radio__text {
+    color: var(--color-primary, #019fde);
+    font-weight: var(--font-weight-medium, 500);
+}
+
+/* ==========================================================
+   Active
+   ========================================================== */
+
+.bads-radio__label:active .bads-radio__circle {
+    transform: scale(.95);
+}
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+
+.bads-radio__control:disabled + .bads-radio__circle {
+    opacity: .65;
+}
+
+.bads-radio__control:disabled ~ .bads-radio__text {
+    opacity: .65;
+}
+
+.bads-radio__label:has(.bads-radio__control:disabled) {
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .bads-radio__text {
+        font-size: var(--font-size-small-mobile);
+    }
+
+}

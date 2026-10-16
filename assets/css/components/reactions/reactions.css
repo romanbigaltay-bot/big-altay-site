@@ -1,0 +1,256 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Component: Reactions (Likes, Shares, Views, Social Metrics)
+   ========================================================== */
+
+.bads-reactions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs, 8px);
+    box-sizing: border-box;
+}
+
+/* Base item / button */
+.bads-reactions__item,
+.bads-reactions__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm, 6px);
+    color: var(--color-text-muted, #64748b);
+    font-size: var(--font-size-small, 13px);
+    font-weight: 500;
+    line-height: 1;
+    cursor: default;
+    transition: color var(--transition-fast, 0.2s ease), 
+                background-color var(--transition-fast, 0.2s ease), 
+                transform var(--transition-fast, 0.15s ease);
+}
+
+.bads-reactions__btn {
+    cursor: pointer;
+}
+
+.bads-reactions__btn:hover {
+    color: var(--color-text, #1e293b);
+    background-color: rgba(var(--brand-primary-rgb, 1, 159, 222), 0.08);
+}
+
+.bads-reactions__btn:active {
+    transform: scale(0.96);
+}
+
+/* Icons */
+.bads-reactions__btn svg,
+.bads-reactions__item svg,
+.bads-reactions__btn .bads-icon,
+.bads-reactions__item .bads-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    stroke: currentColor;
+    flex-shrink: 0;
+    transition: fill var(--transition-fast, 0.2s ease), 
+                stroke var(--transition-fast, 0.2s ease), 
+                transform var(--transition-fast, 0.2s ease);
+}
+
+/* Like Active / Liked State */
+.bads-reactions__btn--like.is-active {
+    color: #ef4444 !important;
+}
+
+.bads-reactions__btn--like.is-active svg,
+.bads-reactions__btn--like.is-active .bads-icon {
+    fill: #ef4444 !important;
+    stroke: #ef4444 !important;
+    animation: badsHeartBeat 0.3s ease forwards;
+}
+
+.bads-reactions__btn--like:hover {
+    color: #ef4444;
+}
+
+@keyframes badsHeartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.28); }
+    100% { transform: scale(1); }
+}
+
+/* Share feedback tooltip */
+.bads-reactions__tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    padding: 4px 8px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-radius: var(--radius-xs, 4px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 20;
+}
+
+.bads-reactions__tooltip.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================
+   Size Modifiers
+   ========================================================== */
+
+/* Large (2x) modifier for Single pages / Featured sections */
+.bads-reactions--lg,
+.bads-reactions--2x {
+    gap: var(--space-md, 16px);
+}
+
+.bads-reactions--lg .bads-reactions__btn,
+.bads-reactions--lg .bads-reactions__item,
+.bads-reactions--2x .bads-reactions__btn,
+.bads-reactions--2x .bads-reactions__item {
+    font-size: 1.125rem; /* ~18px */
+    font-weight: 600;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: var(--radius-md, 8px);
+}
+
+.bads-reactions--lg .bads-reactions__btn svg,
+.bads-reactions--lg .bads-reactions__item svg,
+.bads-reactions--lg .bads-reactions__btn .bads-icon,
+.bads-reactions--lg .bads-reactions__item .bads-icon,
+.bads-reactions--2x .bads-reactions__btn svg,
+.bads-reactions--2x .bads-reactions__item svg,
+.bads-reactions--2x .bads-reactions__btn .bads-icon,
+.bads-reactions--2x .bads-reactions__item .bads-icon {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+/* Small modifier */
+.bads-reactions--sm {
+    gap: 4px;
+}
+
+.bads-reactions--sm .bads-reactions__btn,
+.bads-reactions--sm .bads-reactions__item {
+    font-size: 12px;
+    padding: 2px 4px;
+    gap: 4px;
+}
+
+.bads-reactions--sm .bads-reactions__btn svg,
+.bads-reactions--sm .bads-reactions__item svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* ==========================================================
+   Backward Compatibility Bridge
+   ========================================================== */
+.bads-card__metrics {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs, 8px);
+}
+
+.bads-card__metric-item,
+.bads-card__metric-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm, 6px);
+    color: var(--color-text-muted, #64748b);
+    font-size: var(--font-size-small, 13px);
+    font-weight: 500;
+    line-height: 1;
+    cursor: default;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.bads-card__metric-btn {
+    cursor: pointer;
+}
+
+.bads-card__metric-btn:hover {
+    color: var(--color-text, #1e293b);
+    background-color: rgba(var(--brand-primary-rgb, 1, 159, 222), 0.08);
+}
+
+.bads-card__metric-btn svg,
+.bads-card__metric-item svg,
+.bads-card__metric-btn .bads-icon,
+.bads-card__metric-item .bads-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    stroke: currentColor;
+    flex-shrink: 0;
+    transition: fill 0.2s ease, stroke 0.2s ease, transform 0.2s ease;
+}
+
+.bads-card__metric-btn--like.is-active {
+    color: #ef4444 !important;
+}
+
+.bads-card__metric-btn--like.is-active svg {
+    fill: #ef4444 !important;
+    stroke: #ef4444 !important;
+    animation: badsHeartBeat 0.3s ease forwards;
+}
+
+.bads-card__metric-tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    padding: 4px 8px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 20;
+}
+
+.bads-card__metric-tooltip.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.bads-card__metrics--2x {
+    gap: var(--space-md, 16px) !important;
+}
+
+.bads-card__metrics--2x .bads-card__metric-btn,
+.bads-card__metrics--2x .bads-card__metric-item {
+    font-size: 1.125rem !important;
+    gap: 10px !important;
+    padding: 8px 14px !important;
+    border-radius: var(--radius-md, 8px) !important;
+}
+
+.bads-card__metrics--2x .bads-card__metric-btn svg,
+.bads-card__metrics--2x .bads-card__metric-item svg {
+    width: 28px !important;
+    height: 28px !important;
+}

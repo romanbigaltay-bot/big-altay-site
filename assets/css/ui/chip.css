@@ -1,0 +1,139 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Chip
+   ========================================================== */
+
+.bads-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    min-height: 34px;
+    padding: 0 var(--space-md);
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    background: var(--color-surface-secondary);
+    color: var(--color-text);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
+}
+
+/* ==========================================================
+   Variants
+   ========================================================== */
+
+.bads-chip--default {
+    background: var(--color-surface-secondary);
+    color: var(--color-text);
+}
+
+.bads-chip--primary {
+    background: rgba(var(--brand-primary-rgb), .10);
+    color: var(--color-primary);
+}
+
+.bads-chip--success {
+    background: rgba(var(--brand-success-rgb), .12);
+    color: var(--color-success);
+}
+
+.bads-chip--accent {
+    background: rgba(var(--brand-accent-rgb), .10);
+    color: var(--color-accent);
+}
+
+.bads-chip--outline {
+    background: transparent;
+    border-color: var(--color-border);
+}
+
+/* ==========================================================
+   Sizes
+   ========================================================== */
+
+.bads-chip--sm {
+    min-height:30px;
+    padding-inline:var(--space-sm);
+}
+
+.bads-chip--md {
+    min-height:34px;
+}
+
+.bads-chip--lg {
+    min-height:42px;
+    padding-inline:var(--space-lg);
+}
+
+/* ==========================================================
+   Icon
+   ========================================================== */
+
+.bads-chip__icon {
+    display:inline-flex;
+}
+
+.bads-chip--icon-right .bads-chip__icon {
+    margin-left:2px;
+}
+
+.bads-chip--icon-left .bads-chip__icon {
+    margin-right:2px;
+}
+
+/* ==========================================================
+   Hover
+   ========================================================== */
+
+.bads-chip:hover {
+    text-decoration:none;
+}
+
+.bads-chip--default:hover {
+    background:var(--color-border);
+}
+
+.bads-chip--primary:hover {
+    background:rgba(var(--brand-primary-rgb), .16);
+}
+
+.bads-chip--success:hover {
+    background:rgba(var(--brand-success-rgb), .18);
+}
+
+.bads-chip--accent:hover {
+    background:rgba(var(--brand-accent-rgb), .16);
+}
+
+.bads-chip--outline:hover {
+    border-color:var(--color-primary);
+    color:var(--color-primary);
+}
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+
+.bads-chip:disabled,
+.bads-chip[disabled] {
+    opacity:.6;
+    pointer-events:none;
+}
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+.bads-chip:focus-visible {
+    outline:2px solid var(--color-primary);
+    outline-offset:3px;
+}

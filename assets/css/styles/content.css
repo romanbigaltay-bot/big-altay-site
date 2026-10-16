@@ -1,0 +1,394 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Styles / Content
+   ========================================================== */
+
+
+/* ==========================================================
+   Base
+   ========================================================== */
+
+.bads-content {
+    color: var(--color-text);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-body);
+    line-height: 1.7;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.bads-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ==========================================================
+   Article Variant (Single news, stories, long-form editorial)
+   ========================================================== */
+
+.bads-content--article {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--color-text, #1e293b);
+    max-width: 100%;
+}
+
+.bads-content--article p {
+    margin-top: 0;
+    margin-bottom: 1.6em !important;
+    line-height: 1.8;
+}
+
+/* ==========================================================
+   Headings
+   ========================================================== */
+
+.bads-content h1,
+.bads-content h2,
+.bads-content h3,
+.bads-content h4,
+.bads-content h5,
+.bads-content h6 {
+    color: var(--color-text);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+.bads-content h1:first-child,
+.bads-content h2:first-child,
+.bads-content h3:first-child,
+.bads-content h4:first-child,
+.bads-content h5:first-child,
+.bads-content h6:first-child {
+    margin-top: 0;
+}
+
+.bads-content h1 {
+    font-size: var(--font-size-h1);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+}
+
+.bads-content h2 {
+    font-size: var(--font-size-h2);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+}
+
+.bads-content h3 {
+    font-size: var(--font-size-h3);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+}
+
+.bads-content h4 {
+    font-size: var(--font-size-h4);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xs);
+}
+
+.bads-content h5,
+.bads-content h6 {
+    font-size: var(--font-size-body-lg);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+}
+
+/* ==========================================================
+   Paragraphs & Spacing
+   ========================================================== */
+
+.bads-content p,
+.bads-content > p,
+.bads-content div > p,
+.bads-content .wp-block-paragraph {
+    margin-top: 0;
+    margin-bottom: 1.55em !important;
+    line-height: 1.8;
+    color: inherit;
+}
+
+.bads-content p:last-child,
+.bads-content--article p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Consecutive breaks fallback (for legacy or RSS imported plain text) */
+.bads-content br + br {
+    display: block;
+    content: "";
+    margin-top: 1.25em;
+}
+
+.bads-content p + p,
+.bads-content--article p + p {
+    margin-top: 0;
+    margin-bottom: 1.55em !important;
+}
+
+/* ==========================================================
+   Links
+   ========================================================== */
+
+.bads-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color .2s ease;
+}
+
+.bads-content a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* ==========================================================
+   Text Formatting
+   ========================================================== */
+
+.bads-content strong,
+.bads-content b {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark, #0f172a);
+}
+
+.bads-content em,
+.bads-content i {
+    font-style: italic;
+}
+
+.bads-content small {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   Lists
+   ========================================================== */
+
+.bads-content ul,
+.bads-content ol {
+    margin-top: 0;
+    margin-bottom: 1.25em;
+    padding-left: var(--space-xl);
+}
+
+.bads-content ul {
+    list-style-type: disc;
+}
+
+.bads-content ol {
+    list-style-type: decimal;
+}
+
+.bads-content li {
+    margin-bottom: var(--space-2xs);
+    line-height: inherit;
+}
+
+.bads-content li:last-child {
+    margin-bottom: 0;
+}
+
+.bads-content li > ul,
+.bads-content li > ol {
+    margin-top: var(--space-2xs);
+    margin-bottom: 0;
+}
+
+/* ==========================================================
+   Images & Media
+   ========================================================== */
+
+.bads-content figure,
+.bads-content .wp-block-image,
+.bads-content .wp-block-gallery,
+.bads-content .wp-block-embed {
+    margin: var(--space-xl) 0;
+}
+
+.bads-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+}
+
+.bads-content figcaption,
+.bads-content .wp-element-caption {
+    margin-top: var(--space-xs);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Standard Alignment */
+.bads-content .aligncenter {
+    display: block;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.bads-content .alignleft {
+    float: left;
+    margin: var(--space-xs) var(--space-lg) var(--space-md) 0;
+    max-width: 50%;
+}
+
+.bads-content .alignright {
+    float: right;
+    margin: var(--space-xs) 0 var(--space-md) var(--space-lg);
+    max-width: 50%;
+}
+
+/* ==========================================================
+   Quotes
+   ========================================================== */
+
+.bads-content blockquote,
+.bads-content .wp-block-quote {
+    margin: var(--space-xl) 0;
+    padding: var(--space-md) var(--space-lg);
+    border-left: 4px solid var(--color-primary);
+    background: rgba(var(--brand-primary-rgb, 1, 159, 222), .05);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    color: var(--color-text);
+    font-style: italic;
+}
+
+.bads-content blockquote p,
+.bads-content .wp-block-quote p {
+    margin-bottom: var(--space-xs);
+}
+
+.bads-content blockquote p:last-child,
+.bads-content .wp-block-quote p:last-child {
+    margin-bottom: 0;
+}
+
+.bads-content blockquote cite,
+.bads-content .wp-block-quote cite {
+    display: block;
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-small);
+    font-style: normal;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   Code
+   ========================================================== */
+
+.bads-content code {
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    background: rgba(var(--brand-black-rgb, 15, 23, 42), .06);
+    font-family: monospace;
+    font-size: .9em;
+}
+
+.bads-content pre,
+.bads-content .wp-block-preformatted {
+    overflow-x: auto;
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    background: rgba(var(--brand-black-rgb, 15, 23, 42), .04);
+    font-family: monospace;
+    line-height: 1.5;
+}
+
+.bads-content pre code {
+    padding: 0;
+    background: transparent;
+}
+
+/* ==========================================================
+   Tables
+   ========================================================== */
+
+.bads-content table,
+.bads-content .wp-block-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-xl) 0;
+    font-size: var(--font-size-body);
+}
+
+.bads-content th,
+.bads-content td {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.bads-content th {
+    font-weight: var(--font-weight-semibold);
+    background: rgba(var(--brand-black-rgb, 15, 23, 42), .04);
+}
+
+/* ==========================================================
+   Horizontal Rule
+   ========================================================== */
+
+.bads-content hr,
+.bads-content .wp-block-separator {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-2xl) 0;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 768px) {
+    .bads-content {
+        font-size: var(--font-size-body-mobile);
+        line-height: 1.65;
+    }
+
+    .bads-content--article {
+        font-size: var(--font-size-body-mobile);
+        line-height: 1.65;
+    }
+
+    .bads-content h1 {
+        font-size: var(--font-size-h1-mobile);
+        margin-top: var(--space-xl);
+    }
+
+    .bads-content h2 {
+        font-size: var(--font-size-h2-mobile);
+        margin-top: var(--space-xl);
+    }
+
+    .bads-content h3 {
+        font-size: var(--font-size-h3-mobile);
+        margin-top: var(--space-lg);
+    }
+
+    .bads-content h4 {
+        font-size: var(--font-size-h4-mobile);
+        margin-top: var(--space-md);
+    }
+
+    .bads-content ul,
+    .bads-content ol {
+        padding-left: var(--space-lg);
+    }
+
+    .bads-content pre {
+        padding: var(--space-md);
+    }
+
+    .bads-content .alignleft,
+    .bads-content .alignright {
+        float: none;
+        max-width: 100%;
+        margin-inline: 0;
+    }
+}

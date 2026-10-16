@@ -1,0 +1,98 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Cluster
+   ========================================================== */
+
+.bads-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.bads-cluster--nowrap {
+    flex-wrap: nowrap;
+}
+
+
+/* ==========================================================
+   Gap Variants
+   ========================================================== */
+
+/* Extra Small */
+.bads-cluster--xs {
+    gap: var(--space-xs);
+}
+
+/* Small */
+.bads-cluster--sm {
+    gap: var(--space-sm);
+}
+
+/* Medium */
+.bads-cluster--md {
+    gap: var(--space-md);
+}
+
+/* Large */
+.bads-cluster--lg {
+    gap: var(--space-lg);
+}
+
+/* Extra Large */
+.bads-cluster--xl {
+    gap: var(--space-xl);
+}
+
+/* ==========================================================
+   Horizontal Alignment
+   ========================================================== */
+
+/* Left */
+.bads-cluster--start {
+    justify-content: flex-start;
+}
+
+/* Center */
+.bads-cluster--center {
+    justify-content: center;
+}
+
+/* Right */
+.bads-cluster--end {
+    justify-content: flex-end;
+}
+
+/* Space Between */
+.bads-cluster--between {
+    justify-content: space-between;
+}
+
+/* ==========================================================
+   Vertical Alignment
+   ========================================================== */
+
+/* Top */
+.bads-cluster--top {
+    align-items: flex-start;
+}
+
+/* Center */
+.bads-cluster--middle {
+    align-items: center;
+}
+
+/* Bottom */
+.bads-cluster--bottom {
+    align-items: flex-end;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 768px) {
+    .bads-cluster {
+        gap: var(--space-sm);
+    }
+}

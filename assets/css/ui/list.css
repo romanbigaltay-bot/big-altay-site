@@ -1,0 +1,91 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / List
+   ========================================================== */
+
+/* ==========================================================
+   Base
+   ========================================================== */
+
+.bads-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* ==========================================================
+   Item
+   ========================================================== */
+
+.bads-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+/* ==========================================================
+   Icon
+   ========================================================== */
+
+.bads-list__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-primary);
+}
+
+/* ==========================================================
+   Text
+   ========================================================== */
+
+.bads-list__text {
+    color: var(--color-text);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+}
+
+/* ==========================================================
+   Variants
+   ========================================================== */
+
+/* Default */
+.bads-list--default {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.bads-list--default .bads-list__item {
+    display: list-item;
+}
+
+/* Check */
+.bads-list--check .bads-list__icon {
+    color: var(--color-success, #28a745);
+}
+
+/* Warning */
+.bads-list--warning .bads-list__icon {
+    color: var(--color-warning);
+}
+
+/* Arrow */
+.bads-list--arrow .bads-list__icon {
+    color: var(--color-primary);
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width:768px) {
+
+    .bads-list {
+        gap: var(--space-sm);
+    }
+
+}

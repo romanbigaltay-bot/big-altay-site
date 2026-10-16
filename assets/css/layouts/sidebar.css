@@ -1,0 +1,174 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Sidebar
+   ========================================================== */
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-sidebar {
+    --bads-sidebar-width: 360px;
+    --bads-sidebar-gap: var(--space-2xl);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--bads-sidebar-width);
+    gap: var(--bads-sidebar-gap);
+    align-items: start;
+}
+
+.bads-sidebar--center {
+    align-items: center;
+}
+
+.bads-sidebar > * {
+    min-width: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Position
+|--------------------------------------------------------------------------
+*/
+
+/* Sidebar Right (default) */
+.bads-sidebar--right {
+    grid-template-columns: minmax(0, 1fr) var(--bads-sidebar-width);
+}
+
+/* Sidebar Left */
+.bads-sidebar--left {
+    grid-template-columns: var(--bads-sidebar-width) minmax(0, 1fr);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Sidebar Widths
+|--------------------------------------------------------------------------
+*/
+
+/* Small (280px) */
+.bads-sidebar--sm {
+    --bads-sidebar-width: 280px;
+}
+
+/* Medium (360px) */
+.bads-sidebar--md {
+    --bads-sidebar-width: 360px;
+}
+
+/* Large (420px) */
+.bads-sidebar--lg {
+    --bads-sidebar-width: 420px;
+}
+
+/* Extra Large (440px) */
+.bads-sidebar--xl {
+    --bads-sidebar-width: 440px;
+    --bads-sidebar-gap: 32px;
+}
+
+/* Editorial 2-Column: 920px Left Main + 32px Gap + 440px Right Sidebar (1392px content in 1440px container) */
+.bads-sidebar--editorial {
+    --bads-sidebar-width: 440px;
+    --bads-sidebar-main-width: 920px;
+    --bads-sidebar-gap: 32px;
+
+    display: grid;
+    grid-template-columns: minmax(0, var(--bads-sidebar-main-width, 920px)) var(--bads-sidebar-width, 440px);
+    gap: var(--bads-sidebar-gap, 32px);
+    justify-content: center;
+    align-items: start;
+}
+
+.bads-sidebar--editorial > .bads-sidebar__main {
+    width: 100%;
+    max-width: var(--bads-sidebar-main-width, 920px);
+    min-width: 0;
+}
+
+.bads-sidebar--editorial > .bads-sidebar__aside {
+    width: var(--bads-sidebar-width, 440px);
+    min-width: var(--bads-sidebar-width, 440px);
+    max-width: var(--bads-sidebar-width, 440px);
+}
+
+.bads-sidebar--editorial .bads-hero__sidebar,
+.bads-sidebar__aside .bads-hero__sidebar {
+    height: auto;
+    justify-content: flex-start;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Sticky Aside
+|--------------------------------------------------------------------------
+*/
+
+.bads-sidebar__aside--sticky {
+    --bads-sidebar-sticky-top: var(--bads-sticky-top, 112px);
+    position: sticky;
+    top: var(--bads-sidebar-sticky-top);
+    align-self: start;
+    transition: top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* WordPress Admin Bar sticky compensation */
+body.admin-bar .bads-sidebar__aside--sticky {
+    --bads-sidebar-sticky-top: var(--bads-sticky-top, 144px);
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar .bads-sidebar__aside--sticky {
+        --bads-sidebar-sticky-top: var(--bads-sticky-top, 158px);
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 1399px) {
+    .bads-sidebar--editorial {
+        grid-template-columns: minmax(0, 1fr) var(--bads-sidebar-width, 440px);
+        justify-content: stretch;
+    }
+
+    .bads-sidebar--editorial > .bads-sidebar__main {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .bads-sidebar,
+    .bads-sidebar.bads-sidebar--left,
+    .bads-sidebar.bads-sidebar--right,
+    .bads-sidebar.bads-sidebar--sm,
+    .bads-sidebar.bads-sidebar--md,
+    .bads-sidebar.bads-sidebar--lg,
+    .bads-sidebar.bads-sidebar--xl,
+    .bads-sidebar.bads-sidebar--editorial {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-xl);
+    }
+
+    .bads-sidebar--editorial > .bads-sidebar__main,
+    .bads-sidebar--editorial > .bads-sidebar__aside {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .bads-sidebar__aside {
+        width: 100%;
+        height: auto !important;
+    }
+
+    .bads-sidebar__aside--sticky {
+        position: static;
+    }
+}

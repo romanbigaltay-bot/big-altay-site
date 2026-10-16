@@ -1,0 +1,690 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Button
+   ========================================================== */
+
+/* ==========================================================
+   Base
+   ========================================================== */
+
+.bads-btn,
+a.bads-btn {
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:var(--space-xs);
+
+    width:auto;
+    min-height:56px;
+
+    padding:0 var(--space-xl);
+
+    box-sizing:border-box;
+
+    border:1px solid transparent;
+    border-radius:var(--radius-pill);
+
+    background:transparent;
+
+    color:inherit;
+
+    font-family:var(--font-family-base) !important;
+    font-size:var(--font-size-body);
+    font-weight:var(--font-weight-semibold);
+    line-height:1.2;
+
+    text-decoration:none !important;
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+.bads-btn:hover,
+a.bads-btn:hover,
+.bads-btn:focus,
+a.bads-btn:focus,
+.bads-btn:active,
+a.bads-btn:active,
+.bads-btn:visited,
+a.bads-btn:visited {
+
+    text-decoration:none !important;
+
+}
+
+/* ==========================================================
+   Primary
+   ========================================================== */
+
+.bads-btn--primary,
+a.bads-btn--primary {
+
+    background:var(--color-accent) !important;
+    color:var(--brand-white) !important;
+
+}
+
+.bads-btn--primary:hover,
+a.bads-btn--primary:hover {
+
+    background:var(--color-accent-hover) !important;
+	
+	color:var(--brand-white) !important;
+
+    box-shadow:
+        0 0 20px rgba(var(--brand-accent-rgb),.18),
+        0 8px 24px rgba(var(--brand-accent-rgb),.12);
+
+}
+
+/* ==========================================================
+   Secondary
+   ========================================================== */
+
+.bads-btn--secondary,
+a.bads-btn--secondary {
+
+    background:var(--color-primary) !important;
+    color:var(--brand-white) !important;
+
+}
+
+.bads-btn--secondary:hover,
+a.bads-btn--secondary:hover {
+
+    background:var(--color-primary-hover) !important;
+	color:var(--brand-white) !important;
+
+}
+
+/* ==========================================================
+   Outline
+   ========================================================== */
+
+.bads-btn--outline,
+a.bads-btn--outline {
+
+    border-color:var(--color-primary) !important;
+    color:var(--color-primary) !important;
+
+}
+
+.bads-btn--outline:hover,
+a.bads-btn--outline:hover {
+
+    background:var(--color-primary) !important;
+    color:#fff !important;
+
+}
+
+/* ==========================================================
+   Ghost
+   ========================================================== */
+
+.bads-btn--ghost,
+a.bads-btn--ghost {
+
+    color:var(--color-text) !important;
+
+}
+
+.bads-btn--ghost:hover,
+a.bads-btn--ghost:hover {
+
+    background:rgba(var(--brand-black-rgb),.05) !important;
+
+}
+
+/* ==========================================================
+   Link
+   ========================================================== */
+
+.bads-btn--link,
+a.bads-btn--link,
+button.bads-btn--link {
+
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: var(--space-xs, 6px) !important;
+    width: fit-content !important;
+    max-width: fit-content !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 0 2px 0 !important;
+    padding-inline: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    justify-self: start !important;
+    align-self: center !important;
+
+    color: var(--color-primary, #019fde) !important;
+    text-decoration: none !important;
+    line-height: 1.2 !important;
+    cursor: pointer;
+
+}
+
+/* Hover underline 2px covering text and icon with 2px offset, matching main-menu */
+.bads-btn--link::after,
+a.bads-btn--link::after,
+button.bads-btn--link::after {
+
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-primary, #019fde);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition-fast, 0.2s ease);
+
+}
+
+.bads-btn--link:hover::after,
+a.bads-btn--link:hover::after,
+button.bads-btn--link:hover::after,
+.bads-card:hover .bads-card__action .bads-btn--link::after,
+.bads-card--hover-zoom:hover .bads-card__action .bads-btn--link::after,
+.bads-news-card:hover .bads-news-card__action .bads-btn--link::after {
+
+    transform: scaleX(1);
+
+}
+
+.bads-btn--link:hover,
+a.bads-btn--link:hover,
+button.bads-btn--link:hover,
+.bads-news-card:hover .bads-news-card__action .bads-btn--link {
+
+    text-decoration: none !important;
+    color: var(--color-primary, #019fde) !important;
+    background: transparent !important;
+
+}
+
+.bads-btn--link .bads-btn__icon {
+
+    transition: transform var(--transition-fast, 0.2s ease);
+
+}
+
+.bads-btn--link:hover .bads-btn__icon,
+.bads-news-card:hover .bads-news-card__action .bads-btn--link .bads-btn__icon {
+
+    transform: translateX(3px);
+
+}
+
+/* ==========================================================
+   Icon Only Button (Ghost / Transparent 44x44)
+   ========================================================== */
+
+.bads-btn--icon-only,
+a.bads-btn--icon-only,
+button.bads-btn--icon-only {
+
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+
+    border: none;
+    border-radius: var(--radius-pill);
+
+    background: transparent;
+    color: var(--color-text, #1e293b) !important;
+    text-decoration: none !important;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        color .2s ease,
+        opacity .2s ease;
+
+}
+
+.bads-btn--icon-only:hover,
+a.bads-btn--icon-only:hover,
+button.bads-btn--icon-only:hover {
+
+    transform: scale(1.08);
+    color: var(--color-primary, #019fde) !important;
+
+}
+
+.bads-btn--icon-only svg,
+.bads-btn--icon-only img,
+.bads-btn--icon-only .bads-brand-icon {
+
+    width: 24px;
+    height: 24px;
+    display: block;
+    pointer-events: none;
+
+}
+
+.bads-btn--icon-32,
+a.bads-btn--icon-32 {
+
+    width:32px;
+    height:32px;
+    min-height:32px;
+
+}
+
+.bads-btn--icon-32 svg,
+.bads-btn--icon-32 img,
+.bads-btn--icon-32 .bads-brand-icon {
+
+    width:32px;
+    height:32px;
+
+}
+
+/* ==========================================================
+   Zoom Button (Clean, no outline, no background, scales on hover)
+   ========================================================== */
+
+.bads-btn--zoom,
+a.bads-btn--zoom,
+button.bads-btn--zoom {
+
+    min-height: auto;
+    padding: 0;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--color-primary) !important;
+    text-decoration: none !important;
+    transform-origin: center left;
+    transition: transform .2s cubic-bezier(0.16, 1, 0.3, 1);
+
+}
+
+.bads-btn--zoom:hover,
+a.bads-btn--zoom:hover,
+button.bads-btn--zoom:hover {
+
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    transform: scale(1.08);
+    color: var(--color-primary) !important;
+
+}
+
+/* ==========================================================
+   Surface
+   ========================================================== */
+
+.bads-btn--surface{
+
+    width:100%;
+    justify-content:flex-start;
+
+    min-height:48px;
+
+    padding-inline:var(--space-lg);
+
+    border-radius:var(--radius-lg);
+
+    white-space:normal;
+
+    color:var(--color-text);
+
+}
+
+.bads-btn--surface:hover{
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(250,253,255,.88),
+            rgba(242,249,255,.78)
+        );
+
+    border-color:rgba(var(--brand-primary-rgb),.10);
+
+    border-bottom-color:rgba(var(--brand-primary-rgb),.20);
+
+    box-shadow:
+        0 10px 24px rgba(var(--brand-black-rgb),.04),
+        0 8px 22px rgba(var(--brand-primary-rgb),.05);
+
+}
+
+/* ==========================================================
+   Navigation
+   ========================================================== */
+
+.bads-btn--navigation{
+
+    justify-content:flex-start;
+
+    width:100%;
+
+    min-height:34px;
+
+    padding:4px 0;
+
+    border:none;
+    border-radius:0;
+
+    background:transparent;
+
+    color:var(--color-text);
+
+    font-weight:500;
+
+    white-space:normal;
+
+    text-align:left;
+	
+	text-transform:uppercase;
+
+    letter-spacing:.04em;
+
+    transition:
+        color .22s ease,
+        padding-left .22s ease;
+
+}
+
+
+/* hover */
+
+.bads-btn--navigation:hover{
+
+    color:#62c9ff;
+
+    text-decoration:underline;
+	
+	text-decoration-thickness:2px;
+
+    text-underline-offset:4px;
+
+    padding-left:8px;
+
+}
+
+
+
+/* active */
+
+.bads-btn--navigation.is-active,
+.bads-btn--navigation[aria-selected="true"]{
+
+    color:var(--color-primary);
+
+    text-decoration:underline;
+	
+	text-decoration-thickness:2px;
+
+    text-underline-offset:4px;
+
+    padding-left:8px;
+
+}
+
+/* Иконка */
+
+.bads-btn--navigation .bads-btn__icon{
+
+    width:18px;
+    height:18px;
+
+    flex:0 0 18px;
+
+    opacity:0;
+
+    transform:translateX(-6px);
+
+    transition:
+        opacity .22s ease,
+        transform .22s ease,
+        color .22s ease;
+
+}
+
+/* Hover */
+
+.bads-btn--navigation:hover .bads-btn__icon{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/* Active */
+
+.bads-btn--navigation.is-active .bads-btn__icon,
+.bads-btn--navigation[aria-selected="true"] .bads-btn__icon{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/* ==========================================================
+   Sizes
+   ========================================================== */
+
+.bads-btn--xs:not(.bads-btn--link),
+a.bads-btn--xs:not(.bads-btn--link),
+button.bads-btn--xs:not(.bads-btn--link) {
+
+    min-height: 36px !important;
+    padding: 0 16px !important;
+    padding-inline: var(--space-md, 16px) !important;
+
+}
+
+.bads-btn--xs,
+a.bads-btn--xs,
+button.bads-btn--xs {
+
+    font-size: var(--font-size-small, 13px) !important;
+    font-weight: 600 !important;
+
+}
+
+.bads-btn--sm:not(.bads-btn--link),
+a.bads-btn--sm:not(.bads-btn--link),
+button.bads-btn--sm:not(.bads-btn--link) {
+
+    min-height: 44px !important;
+    padding: 0 20px !important;
+    padding-inline: var(--space-lg, 20px) !important;
+
+}
+
+.bads-btn--sm,
+a.bads-btn--sm,
+button.bads-btn--sm {
+
+    font-size: var(--font-size-small, 14px) !important;
+
+}
+
+.bads-btn--md:not(.bads-btn--link),
+a.bads-btn--md:not(.bads-btn--link),
+button.bads-btn--md:not(.bads-btn--link) {
+
+    min-height: 52px !important;
+    padding: 0 var(--space-xl, 24px) !important;
+
+}
+
+.bads-btn--md,
+a.bads-btn--md,
+button.bads-btn--md {
+
+    font-size: var(--font-size-body, 15px) !important;
+
+}
+
+.bads-btn--lg:not(.bads-btn--link),
+a.bads-btn--lg:not(.bads-btn--link),
+button.bads-btn--lg:not(.bads-btn--link) {
+
+    min-height: 60px !important;
+    padding: 0 var(--space-2xl, 32px) !important;
+
+}
+
+.bads-btn--lg,
+a.bads-btn--lg,
+button.bads-btn--lg {
+
+    font-size: var(--font-size-body-lg, 17px) !important;
+
+}
+
+.bads-btn--block,
+a.bads-btn--block,
+button.bads-btn--block {
+    width: 100% !important;
+}
+
+/* ==========================================================
+   Elements
+   ========================================================== */
+
+.bads-btn__icon{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    color:inherit;
+
+}
+
+.bads-btn__icon svg{
+
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    fill:none;
+    stroke:currentColor;
+
+}
+
+.bads-btn__text{
+
+    display:block;    
+
+}
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+
+.bads-btn:disabled{
+
+    opacity:.55;
+
+    pointer-events:none;
+
+}
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+.bads-btn:focus-visible{
+
+    outline:2px solid var(--color-primary);
+    outline-offset:3px;
+
+}
+
+.bads-btn--surface .bads-btn__text,
+.bads-btn--navigation .bads-btn__text{
+
+    flex:1;
+
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width:768px){
+
+    .bads-btn:not(.bads-btn--link){
+
+        min-height:50px;
+        padding-inline:var(--space-xs);
+
+    }
+
+    .bads-btn--lg:not(.bads-btn--link){
+
+        min-height:56px;
+
+    }
+
+    .bads-btn--navigation{
+
+        min-height:32px;
+
+    }
+
+}
+
+/* ==========================================================
+   Link Variant Absolute Enforcement
+   ========================================================== */
+
+.bads-btn--link,
+a.bads-btn--link,
+button.bads-btn--link,
+.bads-btn--link.bads-btn--xs,
+.bads-btn--link.bads-btn--sm,
+.bads-btn--link.bads-btn--md,
+.bads-btn--link.bads-btn--lg,
+a.bads-btn--link.bads-btn--xs,
+a.bads-btn--link.bads-btn--sm,
+a.bads-btn--link.bads-btn--md,
+a.bads-btn--link.bads-btn--lg {
+
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 0 2px 0 !important;
+    padding-inline: 0 !important;
+    width: fit-content !important;
+    max-width: fit-content !important;
+    justify-self: start !important;
+    align-self: center !important;
+    box-shadow: none !important;
+    transform: none !important;
+
+}

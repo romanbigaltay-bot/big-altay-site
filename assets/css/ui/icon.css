@@ -1,0 +1,106 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Icon
+   ========================================================== */
+
+.bads-icon {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    width:1em;
+    height:1em;
+}
+
+.bads-icon svg,
+.bads-icon img {
+    display:block;
+    width:100%;
+    height:100%;
+}
+
+/* ==========================================================
+   Sizes
+   ========================================================== */
+
+.bads-icon--xs {
+    width:14px;
+    height:14px;
+}
+
+.bads-icon--sm {
+    width:18px;
+    height:18px;
+}
+
+.bads-icon--md {
+    width:24px;
+    height:24px;
+}
+
+.bads-icon--lg {
+    width:32px;
+    height:32px;
+}
+
+.bads-icon--xl {
+    width:48px;
+    height:48px;
+}
+
+/* ==========================================================
+   Brand Mask Icons (Corporate Blue -> Branded Color on Hover)
+   ========================================================== */
+
+.bads-brand-icon {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    pointer-events: none;
+    background-color: var(--color-primary, #019fde);
+    -webkit-mask-image: var(--brand-mask);
+    mask-image: var(--brand-mask);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transition: background-color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
+}
+
+.bads-brand-icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition-fast, 0.2s ease);
+    pointer-events: none;
+}
+
+/* MAX: Default mask fallback + signature gradient on hover */
+.bads-brand-icon--max {
+    --brand-mask: url('../../images/brands/max.svg');
+}
+
+.bads-brand-icon--max::after {
+    background: linear-gradient(180deg, #4074FD 0%, #8E47E3 100%);
+}
+
+/* VK: Default mask fallback + signature #0077FF on hover */
+.bads-brand-icon--vk {
+    --brand-mask: url('../../images/brands/vk.svg');
+}
+
+.bads-brand-icon--vk::after {
+    background-color: #0077FF;
+}
+
+/* Interactive Hover Triggered by Parent Link or Button */
+.bads-btn:hover .bads-brand-icon::after,
+a:hover .bads-brand-icon::after {
+    opacity: 1;
+}

@@ -1,0 +1,299 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Overlap
+   ========================================================== */
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap {
+    position: relative;
+    width: 100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Items
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap > * {
+    position: relative;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Layering
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap__back {
+    z-index: 1;
+}
+
+.bads-overlap__front {
+    position: absolute;
+    z-index: 2;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Horizontal Position
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap__front--right {
+    right: 0;
+}
+
+.bads-overlap__front--left {
+    left: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Vertical Position
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap__front--top {
+    top: 0;
+}
+.bads-overlap__front--center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Center + Translate compatibility
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap__front--center.bads-overlap__front--translate-25 {
+    transform: translateY(-25%);
+}
+
+.bads-overlap__front--center.bads-overlap__front--translate-50 {
+    transform: translateY(0);
+}
+
+.bads-overlap__front--center.bads-overlap__front--translate-75 {
+    transform: translateY(25%);
+}
+
+.bads-overlap__front--center.bads-overlap__front--translate-100 {
+    transform: translateY(50%);
+}
+
+.bads-overlap__front--bottom {
+    bottom: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Translate
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap__front--translate-25 {
+    transform: translateY(25%);
+}
+
+.bads-overlap__front--translate-50 {
+    transform: translateY(50%);
+}
+
+.bads-overlap__front--translate-75 {
+    transform: translateY(75%);
+}
+
+.bads-overlap__front--translate-100 {
+    transform: translateY(100%);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Offset
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap--offset-sm {
+    --overlap-offset: var(--space-lg);
+}
+
+.bads-overlap--offset-md {
+    --overlap-offset: var(--space-xl);
+}
+
+.bads-overlap--offset-lg {
+    --overlap-offset: var(--space-2xl);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Pull
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap--pull-sm {
+    margin-bottom: calc(var(--bads-space-lg) * -1);
+}
+
+.bads-overlap--pull-md {
+    margin-bottom: calc(var(--bads-space-xl) * -1);
+}
+
+.bads-overlap--pull-lg {
+    margin-bottom: calc(var(--bads-space-2xl) * -1);
+}
+
+.bads-overlap--pull-xl {
+    margin-bottom: calc(var(--bads-space-3xl) * -1);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Horizontal Offset
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap__front--offset-right {
+    margin-right: var(--overlap-offset);
+}
+
+.bads-overlap__front--offset-left {
+    margin-left: var(--overlap-offset);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width:768px) {
+	
+    .bads-overlap__front {
+        position: relative;
+        inset: auto;
+        transform: none;
+        margin: 0;
+    }
+	
+	.bads-overlap[class*="bads-overlap--pull-"] {
+		margin-bottom: 0;
+	}
+	
+}
+
+/*
+|--------------------------------------------------------------------------
+| Split Overlap (Card overlapping side media)
+|--------------------------------------------------------------------------
+*/
+
+.bads-overlap-split {
+    display: grid;
+    grid-template-columns: minmax(380px, 560px) 1fr;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.bads-overlap-split__card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: var(--shadow-xl);
+}
+
+.bads-overlap-split__media {
+    position: relative;
+    z-index: 1;
+    width: calc(100% + 100px);
+    margin-left: -100px;
+    min-width: 0;
+}
+
+/* Modifiers for ratio/width balance */
+.bads-overlap-split--compact .bads-overlap-split__card {
+    max-width: 460px;
+}
+
+.bads-overlap-split--compact .bads-overlap-split__media {
+    width: calc(100% + 70px);
+    margin-left: -70px;
+}
+
+.bads-overlap-split--deep .bads-overlap-split__media {
+    width: calc(100% + 140px);
+    margin-left: -140px;
+}
+
+/* Reverse Split Overlap */
+.bads-overlap-split--reverse {
+    grid-template-columns: 1fr minmax(380px, 560px);
+}
+
+.bads-overlap-split--reverse .bads-overlap-split__media {
+    order: 1;
+    width: calc(100% + 100px);
+    margin-left: 0;
+    margin-right: -100px;
+}
+
+.bads-overlap-split--reverse .bads-overlap-split__card {
+    order: 2;
+    max-width: 560px;
+    margin-left: 0;
+}
+
+@media (max-width: 1199px) {
+    .bads-overlap-split__media,
+    .bads-overlap-split--deep .bads-overlap-split__media {
+        width: calc(100% + 50px);
+        margin-left: -50px;
+    }
+
+    .bads-overlap-split--reverse .bads-overlap-split__media {
+        width: calc(100% + 50px);
+        margin-right: -50px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .bads-overlap-split,
+    .bads-overlap-split--reverse {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+
+    .bads-overlap-split__card,
+    .bads-overlap-split--reverse .bads-overlap-split__card,
+    .bads-overlap-split--compact .bads-overlap-split__card,
+    .bads-overlap-split--deep .bads-overlap-split__card {
+        margin-right: 0;
+        margin-left: 0;
+        max-width: 100%;
+        order: 1;
+    }
+
+    .bads-overlap-split__media,
+    .bads-overlap-split--reverse .bads-overlap-split__media,
+    .bads-overlap-split--compact .bads-overlap-split__media,
+    .bads-overlap-split--deep .bads-overlap-split__media {
+        order: 2;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

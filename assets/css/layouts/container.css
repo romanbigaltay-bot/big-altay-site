@@ -1,0 +1,85 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Container
+   ========================================================== */
+
+.bads-container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-desktop);
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   Width Variants
+   ========================================================== */
+
+/* Small */
+.bads-container--sm {
+    max-width: var(--container-sm);
+}
+
+/* Medium */
+.bads-container--md {
+    max-width: var(--container-md);
+}
+
+
+/* Large */
+.bads-container--lg {
+    max-width: var(--container-lg);
+}
+
+/* Extra Large */
+.bads-container--xl {
+    max-width: var(--container-xl);
+}
+
+/* Full Width */
+.bads-container--full {
+    max-width: none;
+}
+
+/* ==========================================================
+   Inset / Padding Modifiers
+   ========================================================== */
+
+/* Inset (дополнительные боковые отступы для более компактной сборки контента) */
+.bads-container--inset-lg {
+    padding-inline: calc(var(--container-padding-desktop) + 100px);
+}
+
+.bads-container--inset-md {
+    padding-inline: calc(var(--container-padding-desktop) + 60px);
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .bads-container {
+        padding-inline: var(--container-padding-tablet);
+    }
+
+    .bads-container--inset-lg,
+    .bads-container--inset-md {
+        padding-inline: var(--container-padding-tablet);
+    }
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .bads-container {
+        padding-inline: var(--container-padding-mobile);
+    }
+
+    .bads-container--inset-lg,
+    .bads-container--inset-md {
+        padding-inline: var(--container-padding-mobile);
+    }
+}

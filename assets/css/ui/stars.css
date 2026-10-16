@@ -1,0 +1,18 @@
+/**
+ * ============================================================================
+ * Big Altay Design System (BADS)
+ * UI / Stars
+ * ============================================================================
+ */
+
+.bads-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--bads-space-2xs);
+
+    color: #F5B301;
+}
+
+.bads-stars__icon {
+    flex: 0 0 auto;
+}

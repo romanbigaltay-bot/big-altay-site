@@ -1,0 +1,289 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Component: Showcase Card (Overlap Media & Info Banner)
+   Used for: Promos, Special Offers, Featured Packages, Accommodations
+   ========================================================== */
+
+.bads-showcase-card,
+.bads-promo-card,
+.bads-promotions-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 520px;
+    margin-bottom: 120px;
+    box-sizing: border-box;
+}
+
+/* When inside slider or grid without bottom margin requirement */
+.bads-slider .bads-showcase-card,
+.bads-slider .bads-promo-card,
+.bads-slider .bads-promotions-row {
+    margin-bottom: 0;
+}
+
+.bads-showcase-card:last-child,
+.bads-promo-card:last-child,
+.bads-promotions-row:last-child {
+    margin-bottom: 0;
+}
+
+.bads-showcase-card--reverse,
+.bads-promotions-row--reverse {
+    flex-direction: row-reverse;
+}
+
+/* ----------------------------------------------------------
+   Media / Image Block
+   ---------------------------------------------------------- */
+.bads-showcase-card__media,
+.bads-promo-card__image,
+.bads-promotions-row__image {
+    position: relative;
+    width: 65%;
+    height: 520px;
+    border-radius: var(--radius-lg, 16px);
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+}
+
+.bads-showcase-card__media-link,
+.bads-promo-card__image-link,
+.bads-promotions-row__image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.bads-showcase-card__img,
+.bads-promo-card__img,
+.bads-promotions-row__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-base, 0.3s ease);
+}
+
+/* ----------------------------------------------------------
+   Content Card (Overlay Surface)
+   ---------------------------------------------------------- */
+.bads-showcase-card__content,
+.bads-promo-card__card,
+.bads-promotions-row__card {
+    position: relative;
+    width: 48%;
+    margin-left: -13%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform var(--transition-base, 0.3s ease), 
+                box-shadow var(--transition-base, 0.3s ease);
+}
+
+.bads-showcase-card--reverse .bads-showcase-card__content,
+.bads-promotions-row--reverse .bads-promotions-row__card {
+    margin-left: 0;
+    margin-right: -13%;
+}
+
+/* ----------------------------------------------------------
+   Hover Transitions
+   ---------------------------------------------------------- */
+.bads-showcase-card:hover .bads-showcase-card__img,
+.bads-promo-card:hover .bads-promo-card__img,
+.bads-promotions-row:hover .bads-promotions-row__img {
+    transform: scale(1.03);
+}
+
+.bads-showcase-card:hover .bads-showcase-card__content,
+.bads-promo-card:hover .bads-promo-card__card,
+.bads-promotions-row:hover .bads-promotions-row__card {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04));
+}
+
+.bads-showcase-card__card-link,
+.bads-promo-card__card-link,
+.bads-promotions-row__card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* ----------------------------------------------------------
+   Typography & Details
+   ---------------------------------------------------------- */
+.bads-showcase-card__title,
+.bads-promo-card__title,
+.bads-promotions-row__title {
+    margin: 0 0 var(--space-sm, 12px) 0;
+    line-height: var(--line-height-tight, 1.25);
+    color: var(--color-text, #1e293b);
+    transition: color var(--transition-fast, 0.2s ease);
+}
+
+.bads-showcase-card__title .bads-title__heading,
+.bads-promo-card__title .bads-title__heading,
+.bads-promotions-row__title .bads-title__heading {
+    transition: color var(--transition-fast, 0.2s ease);
+}
+
+.bads-showcase-card__card-link:hover .bads-showcase-card__title,
+.bads-promo-card__card-link:hover .bads-promo-card__title,
+.bads-promotions-row__title:hover,
+.bads-showcase-card__card-link:hover .bads-title__heading,
+.bads-promo-card__card-link:hover .bads-title__heading,
+.bads-showcase-card:hover .bads-title__heading,
+.bads-promo-card:hover .bads-title__heading,
+.bads-promotions-row:hover .bads-title__heading {
+    color: var(--color-primary, #019fde);
+}
+
+.bads-showcase-card:hover .bads-btn--link::after,
+.bads-promo-card:hover .bads-btn--link::after,
+.bads-promotions-row:hover .bads-btn--link::after {
+    transform: scaleX(1);
+}
+
+.bads-showcase-card:hover .bads-btn--link .bads-btn__icon,
+.bads-promo-card:hover .bads-btn--link .bads-btn__icon,
+.bads-promotions-row:hover .bads-btn--link .bads-btn__icon {
+    transform: translateX(3px);
+}
+
+.bads-showcase-card__discount,
+.bads-promo-card__discount,
+.bads-promotions-row__discount {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-accent, #D02457);
+    font-weight: 700;
+    font-size: var(--font-size-h4, 1.25rem);
+    margin-bottom: var(--space-xs, 8px);
+}
+
+.bads-showcase-card__period,
+.bads-promo-card__period,
+.bads-promotions-row__period {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-muted, #64748b);
+    font-size: var(--font-size-small, 14px);
+    margin-bottom: var(--space-md, 16px);
+}
+
+.bads-showcase-card__description,
+.bads-promo-card__description,
+.bads-promotions-row__description {
+    color: var(--color-text, #334155);
+    line-height: var(--line-height-relaxed, 1.6);
+    margin: 0 0 var(--space-lg, 24px) 0;
+}
+
+/* ----------------------------------------------------------
+   Responsive Adaptations
+   ---------------------------------------------------------- */
+@media (max-width: 1200px) {
+    .bads-showcase-card,
+    .bads-promo-card,
+    .bads-promotions-row {
+        min-height: 460px;
+        margin-bottom: 100px;
+    }
+    .bads-slider .bads-showcase-card,
+    .bads-slider .bads-promo-card,
+    .bads-slider .bads-promotions-row {
+        margin-bottom: 0;
+    }
+    .bads-showcase-card__media,
+    .bads-promo-card__image,
+    .bads-promotions-row__image {
+        height: 460px;
+    }
+    .bads-showcase-card__content,
+    .bads-promo-card__card,
+    .bads-promotions-row__card {
+        padding: var(--space-lg, 24px);
+    }
+}
+
+@media (max-width: 991px) {
+    .bads-showcase-card,
+    .bads-promo-card,
+    .bads-promotions-row,
+    .bads-showcase-card--reverse,
+    .bads-promotions-row--reverse {
+        flex-direction: column !important;
+        min-height: auto;
+        margin-bottom: 70px;
+    }
+    .bads-slider .bads-showcase-card,
+    .bads-slider .bads-promo-card,
+    .bads-slider .bads-promotions-row {
+        margin-bottom: 0;
+    }
+
+    .bads-showcase-card__media,
+    .bads-promo-card__image,
+    .bads-promotions-row__image {
+        width: 100% !important;
+        height: 340px !important;
+    }
+
+    .bads-showcase-card__content,
+    .bads-promo-card__card,
+    .bads-promotions-row__card {
+        width: 92% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: -60px !important;
+    }
+
+    .bads-showcase-card--reverse .bads-showcase-card__content,
+    .bads-promotions-row--reverse .bads-promotions-row__card {
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .bads-showcase-card,
+    .bads-promo-card,
+    .bads-promotions-row {
+        margin-bottom: 48px;
+    }
+    .bads-slider .bads-showcase-card,
+    .bads-slider .bads-promo-card,
+    .bads-slider .bads-promotions-row {
+        margin-bottom: 0;
+    }
+
+    .bads-showcase-card__media,
+    .bads-promo-card__image,
+    .bads-promotions-row__image {
+        height: 240px !important;
+        border-radius: var(--radius-md, 12px);
+    }
+
+    .bads-showcase-card__content,
+    .bads-promo-card__card,
+    .bads-promotions-row__card {
+        width: 100% !important;
+        margin-top: var(--space-sm, 12px) !important;
+        padding: var(--space-md, 16px) !important;
+    }
+
+    .bads-showcase-card__title,
+    .bads-promo-card__title,
+    .bads-promotions-row__title,
+    .bads-showcase-card__title .bads-title__heading,
+    .bads-promo-card__title .bads-title__heading,
+    .bads-promotions-row__title .bads-title__heading {
+        font-size: 1.25rem;
+    }
+}

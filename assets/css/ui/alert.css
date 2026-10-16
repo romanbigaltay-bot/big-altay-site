@@ -1,0 +1,269 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Alert
+   ========================================================== */
+
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    width: 100%;
+    padding: var(--space-lg);
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.bads-alert[hidden] {
+    display: none !important;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Icon
+|--------------------------------------------------------------------------
+*/
+
+.bads-alert__icon {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-top: 2px;
+    color: currentColor;
+}
+
+.bads-alert__icon-inner {
+    color: inherit;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Body
+|--------------------------------------------------------------------------
+*/
+
+.bads-alert__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    flex: 1;
+    min-width: 0;
+}
+
+.bads-alert__title {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+}
+
+.bads-alert__text {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    overflow-wrap: anywhere;
+}
+
+.bads-alert__text > :first-child {
+    margin-top: 0;
+}
+
+.bads-alert__text > :last-child {
+    margin-bottom: 0;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Close
+|--------------------------------------------------------------------------
+*/
+
+.bads-alert__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    opacity: .72;
+    transition:
+        opacity .2s ease,
+        background-color .2s ease,
+        transform .2s ease;
+}
+
+.bads-alert__close:hover {
+    opacity: 1;
+    background: rgba(var(--brand-black-rgb), .06);
+}
+
+.bads-alert__close:active {
+    transform: scale(.96);
+}
+
+.bads-alert__close:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.bads-alert__close-icon {
+    color: inherit;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Variants
+|--------------------------------------------------------------------------
+*/
+
+.bads-alert--info {
+    background: rgba(var(--brand-primary-rgb), .08);
+    border-color: rgba(var(--brand-primary-rgb), .18);
+    color: var(--color-text);
+    box-shadow: 0 8px 24px rgba(var(--brand-primary-rgb), .04);
+}
+
+.bads-alert--info .bads-alert__icon {
+    color: var(--color-primary);
+}
+
+
+.bads-alert--success {
+    background: rgba(var(--brand-success-rgb), .08);
+    border-color: rgba(var(--brand-success-rgb), .18);
+    color: var(--color-text);
+    box-shadow: 0 8px 24px rgba(var(--brand-success-rgb), .04);
+}
+
+.bads-alert--success .bads-alert__icon {
+    color: var(--color-success);
+}
+
+
+.bads-alert--warning {
+    background: rgba(var(--brand-warning-rgb), .10);
+    border-color: rgba(var(--brand-warning-rgb), .22);
+    color: var(--color-text);
+    box-shadow: 0 8px 24px rgba(var(--brand-warning-rgb), .04);
+}
+
+.bads-alert--warning .bads-alert__icon {
+    color: var(--color-warning);
+}
+
+
+.bads-alert--error {
+    background: rgba(var(--brand-danger-rgb), .08);
+    border-color: rgba(var(--brand-danger-rgb), .18);
+    color: var(--color-text);
+    box-shadow: 0 8px 24px rgba(var(--brand-danger-rgb), .04);
+}
+
+.bads-alert--error .bads-alert__icon {
+    color: var(--color-danger);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| No Icon
+|--------------------------------------------------------------------------
+*/
+
+.bads-alert--no-icon {
+    gap: var(--space-sm);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Closable
+|--------------------------------------------------------------------------
+*/
+
+.bads-alert--closable {
+    padding-right: var(--space-md);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Motion States
+|--------------------------------------------------------------------------
+| JS can toggle these classes without changing this file.
+*/
+
+.bads-alert.is-hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+}
+
+.bads-alert.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bads-alert.is-closing {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 768px) {
+    .bads-alert {
+        gap: var(--space-sm);
+        padding: var(--space-md);
+    }
+
+    .bads-alert__title {
+        font-size: var(--font-size-body);
+    }
+
+    .bads-alert__text {
+        font-size: var(--font-size-body-mobile);
+    }
+
+    .bads-alert__close {
+        width: 28px;
+        height: 28px;
+    }
+}

@@ -1,0 +1,235 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Tabs
+   ========================================================== */
+
+/* ==========================================================
+   Root
+   ========================================================== */
+
+.bads-tabs {
+    width: 100%;
+}
+
+
+/* ==========================================================
+   Navigation
+   ========================================================== */
+
+.bads-tabs__nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* ==========================================================
+   Variants: Pills & Segmented
+   ========================================================== */
+
+.bads-tabs--segmented .bads-tabs__nav,
+.bads-tabs--pills .bads-tabs__nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 4px;
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: var(--radius-pill, 9999px);
+    border-bottom: none;
+    margin-bottom: var(--space-md);
+    box-sizing: border-box;
+}
+
+.bads-tabs--segmented .bads-tabs__tab,
+.bads-tabs--pills .bads-tabs__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 var(--space-sm, 14px);
+    border: none;
+    border-radius: var(--radius-pill, 9999px);
+    background: transparent;
+    color: var(--color-text-muted, #64748b);
+    font-size: var(--font-size-small, 14px);
+    font-weight: var(--font-weight-medium, 500);
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.bads-tabs--segmented .bads-tabs__tab::after,
+.bads-tabs--pills .bads-tabs__tab::after {
+    display: none;
+}
+
+.bads-tabs--segmented .bads-tabs__tab:hover,
+.bads-tabs--pills .bads-tabs__tab:hover {
+    color: var(--color-text-main, #0f172a);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.bads-tabs--segmented .bads-tabs__tab--active,
+.bads-tabs--pills .bads-tabs__tab--active {
+    background: #ffffff;
+    color: var(--color-primary, #0087c2);
+    font-weight: var(--font-weight-semibold, 600);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================
+   Tab Button
+   ========================================================== */
+
+.bads-tabs__tab {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    cursor: pointer;
+
+    transition:
+
+        color .25s ease,
+        background-color .25s ease;
+}
+
+/* ==========================================================
+   Hover
+   ========================================================== */
+
+.bads-tabs__tab:hover {
+    color: var(--color-primary);
+}
+
+/* ==========================================================
+   Active
+   ========================================================== */
+
+.bads-tabs__tab--active {
+    color: var(--color-primary);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Active underline
+|--------------------------------------------------------------------------
+*/
+
+.bads-tabs__tab::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transform: translateX(-50%);
+
+    transition:
+
+        width .25s ease;
+}
+
+.bads-tabs__tab--active::after {
+    width: 100%;
+}
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+.bads-tabs__tab:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   Panels
+   ========================================================== */
+
+.bads-tabs__panels {
+    width: 100%;
+}
+
+.bads-tabs__panel {
+    display: none;
+    width: 100%;
+}
+
+.bads-tabs__panel--active {
+    display: block;
+}
+
+/* ==========================================================
+   Panel Animation
+   ========================================================== */
+
+.bads-tabs__panel--active {
+    animation:
+        bads-tabs-fade .25s ease;
+}
+
+@keyframes bads-tabs-fade {
+
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+	
+}
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+
+.bads-tabs__tab:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width:768px) {
+
+    .bads-tabs__nav {
+        gap: 0;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        scrollbar-width: none;
+    }
+
+    .bads-tabs__nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .bads-tabs__tab {
+        flex-shrink: 0;
+        padding-inline: var(--space-md);
+        min-height: 44px;
+        font-size: var(--font-size-small);
+    }
+
+}

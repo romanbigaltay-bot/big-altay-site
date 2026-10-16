@@ -1,0 +1,100 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Grid
+   ========================================================== */
+
+/* ==========================================================
+   Base
+   ========================================================== */
+
+.bads-grid {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+/* ==========================================================
+   Columns
+   ========================================================== */
+
+/* Auto */
+.bads-grid--auto {
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+}
+
+/* 2 Columns */
+.bads-grid--2 {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+}
+
+/* 3 Columns */
+.bads-grid--3 {
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+}
+
+/* 4 Columns */
+.bads-grid--4 {
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+}
+
+/* ==========================================================
+   Gap
+   ========================================================== */
+
+.bads-grid--gap-sm {
+    gap: var(--space-md);
+}
+
+.bads-grid--gap-md {
+    gap: var(--space-xl);
+}
+
+.bads-grid--gap-lg {
+    gap: var(--space-2xl);
+}
+
+/* ==========================================================
+   Alignment
+   ========================================================== */
+
+.bads-grid--center {
+    align-items: center;
+}
+
+.bads-grid--stretch {
+    align-items: stretch;
+}
+
+.bads-grid--start {
+    align-items: start;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width:991px) {
+    .bads-grid--4,
+    .bads-grid--3 {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+}
+
+@media (max-width:768px) {
+    .bads-grid--2,
+    .bads-grid--3,
+    .bads-grid--4 {
+        grid-template-columns:1fr;
+    }
+
+    .bads-grid {
+        gap: var(--space-lg);
+    }
+}

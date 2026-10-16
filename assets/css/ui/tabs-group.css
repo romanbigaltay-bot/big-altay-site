@@ -1,0 +1,50 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Tabs Group
+   ========================================================== */
+
+.bads-tabs-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.bads-tabs-group--gap-none {
+    gap: 0;
+}
+
+.bads-tabs-group--gap-xs {
+    gap: var(--space-xs);
+}
+
+.bads-tabs-group--gap-sm {
+    gap: var(--space-sm);
+}
+
+.bads-tabs-group--gap-md {
+    gap: var(--space-md);
+}
+
+.bads-tabs-group--gap-lg {
+    gap: var(--space-lg);
+}
+
+.bads-tabs-group--gap-xl {
+    gap: var(--space-xl);
+}
+
+.bads-tabs-group__item {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+	
+    .bads-tabs-group--gap-lg {
+        gap: var(--space-md);
+    }
+
+    .bads-tabs-group--gap-xl {
+        gap: var(--space-lg);
+    }
+	
+}

@@ -1,0 +1,67 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Subtitle
+   ========================================================== */
+
+.bads-subtitle {
+    max-width: 720px;
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-body-lg);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-body);
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   Variants
+   ========================================================== */
+
+.bads-subtitle--default {
+    color: var(--color-text-muted);
+}
+
+.bads-subtitle--emphasis,
+.bads-subtitle--lead,
+.bads-subtitle--dark {
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+.bads-subtitle--accent {
+    color: var(--color-accent);
+}
+
+.bads-subtitle--primary {
+    color: var(--color-primary);
+}
+
+/* ==========================================================
+   Alignment
+   ========================================================== */
+
+.bads-subtitle--align-left {
+    text-align: left;
+}
+
+.bads-subtitle--align-center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.bads-subtitle--align-right {
+    margin-left: auto;
+    text-align: right;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width:768px) {
+
+    .bads-subtitle {
+        font-size: var(--font-size-body-mobile);
+    }
+
+}

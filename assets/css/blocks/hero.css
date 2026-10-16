@@ -1,0 +1,204 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Block / Hero
+   ========================================================== */
+
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding: var(--space-3xl) 0;
+    background: var(--color-background);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Background
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bads-hero--overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(var(--brand-black-rgb), .45);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Layout
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.bads-hero:has(.bads-hero__aside) .bads-hero__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 480px);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Main
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero__main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    min-width: 0;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Slots
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero__header,
+.bads-hero__content,
+.bads-hero__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Aside
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero__aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Variants
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero--compact {
+    padding: var(--space-2xl) 0;
+}
+
+.bads-hero--light {
+    color: var(--color-text-inverse);
+}
+
+.bads-hero--dark {
+    background: var(--brand-black);
+    color: var(--color-text-inverse);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Background Variant
+|--------------------------------------------------------------------------
+*/
+
+.bads-hero--background {
+    color: var(--color-text-inverse);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Common Content
+|--------------------------------------------------------------------------
+|
+| Небольшие правила для типичного содержимого Hero.
+| Они не заменяют UI-компоненты, а лишь задают вертикальный ритм.
+|
+*/
+
+.bads-hero__content > :first-child,
+.bads-hero__header > :first-child,
+.bads-hero__footer > :first-child {
+    margin-top: 0;
+}
+
+.bads-hero__content > :last-child,
+.bads-hero__header > :last-child,
+.bads-hero__footer > :last-child {
+    margin-bottom: 0;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 992px) {
+
+    .bads-hero {
+        padding: var(--space-2xl) 0;
+    }
+
+    .bads-hero__layout,
+    .bads-hero:has(.bads-hero__aside) .bads-hero__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .bads-hero__aside {
+        order: -1;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .bads-hero {
+        padding: var(--space-xl) 0;
+    }
+
+    .bads-hero__layout {
+        gap: var(--space-xl);
+    }
+
+    .bads-hero__main {
+        gap: var(--space-lg);
+    }
+
+    .bads-hero__header,
+    .bads-hero__content,
+    .bads-hero__footer {
+        gap: var(--space-md);
+    }
+
+}

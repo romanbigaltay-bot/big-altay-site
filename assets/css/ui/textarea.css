@@ -1,0 +1,138 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Textarea
+   ========================================================== */
+
+/* ==========================================================
+   Root
+   ========================================================== */
+
+.bads-textarea {
+    width: 100%;
+    min-height: 160px;
+    padding: 18px 24px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+/* ==========================================================
+   Placeholder
+   ========================================================== */
+
+.bads-textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   Hover / Focus
+   ========================================================== */
+
+.bads-textarea:hover {
+    border-color: var(--color-primary);
+}
+
+.bads-textarea:focus {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(var(--brand-primary-rgb), .10);
+}
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+
+.bads-textarea:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   States
+   ========================================================== */
+
+.bads-textarea--error {
+    border-color: var(--color-danger);
+}
+
+.bads-textarea--error:focus {
+    box-shadow:
+        0 0 0 4px rgba(var(--brand-danger-rgb), .10);
+}
+
+.bads-textarea--success {
+    border-color: var(--color-success);
+}
+
+.bads-textarea--success:focus {
+    box-shadow:
+        0 0 0 4px rgba(var(--brand-success-rgb), .10);
+}
+
+/* ==========================================================
+   Radius & Sizes
+   ========================================================== */
+
+.bads-textarea--radius-pill {
+    border-radius: var(--radius-pill);
+}
+
+.bads-textarea--radius-md {
+    border-radius: var(--radius-md);
+}
+
+.bads-textarea--radius-lg {
+    border-radius: var(--radius-lg);
+}
+
+.bads-textarea--sm {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: var(--font-size-small);
+}
+
+.bads-textarea--md {
+    min-height: 52px;
+    padding: 13px 20px;
+    font-size: var(--font-size-body);
+}
+
+.bads-textarea--compact {
+    min-height: 52px;
+    height: 52px;
+    padding: 13px 20px;
+    resize: none;
+    line-height: 1.4;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .bads-textarea {
+        min-height: 140px;
+        font-size: var(--font-size-body-mobile);
+    }
+
+    .bads-textarea--compact {
+        min-height: 52px;
+        height: 52px;
+        padding: 12px 18px;
+    }
+
+}

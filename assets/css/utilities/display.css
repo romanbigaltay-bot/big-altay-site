@@ -1,0 +1,54 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Utilities / Display
+   ========================================================== */
+
+[hidden] {
+    display: none !important;
+}
+
+.u-block {
+    display: block !important;
+}
+
+.u-inline {
+    display: inline !important;
+}
+
+.u-inline-block {
+    display: inline-block !important;
+}
+
+.u-flex {
+    display: flex !important;
+}
+
+.u-inline-flex {
+    display: inline-flex !important;
+}
+
+.u-grid {
+    display: grid !important;
+}
+
+.u-hidden {
+    display: none !important;
+}
+
+/* ==========================================================
+   Responsive Display Utilities
+   ========================================================== */
+
+/* Mobile only (hidden on desktop >= 992px) */
+@media (min-width: 992px) {
+    .u-hidden-desktop {
+        display: none !important;
+    }
+}
+
+/* Desktop only (hidden on mobile < 992px) */
+@media (max-width: 991px) {
+    .u-hidden-mobile {
+        display: none !important;
+    }
+}

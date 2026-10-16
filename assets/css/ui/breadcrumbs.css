@@ -1,0 +1,194 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Breadcrumbs
+   ========================================================== */
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| List
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Item
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Link
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs__link {
+    color: var(--color-text-subtle);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-body);
+    text-decoration: none;
+    white-space: nowrap;
+	
+    transition:
+        color var(--transition-fast);
+}
+
+.bads-breadcrumbs__link:hover {
+    color: var(--color-primary);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Current page
+|--------------------------------------------------------------------------
+|
+| Текущая страница намеренно менее контрастная.
+| Она уже не является ссылкой.
+|
+*/
+
+.bads-breadcrumbs__current {
+    color: var(--color-text-disabled);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-body);
+    white-space: nowrap;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Plain text
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs__text {
+    color: var(--color-text-muted);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-body);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Separator
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs__separator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-text-disabled);
+}
+
+
+.bads-breadcrumbs__separator .bads-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Focus
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs__link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Light context
+|--------------------------------------------------------------------------
+*/
+
+.bads-breadcrumbs--light .bads-breadcrumbs__link {
+    color: var(--color-text-inverse-muted);
+}
+
+.bads-breadcrumbs--light .bads-breadcrumbs__link:hover {
+    color: var(--color-text-inverse);
+}
+
+.bads-breadcrumbs--light .bads-breadcrumbs__current {
+    color: var(--color-text-inverse-subtle);
+}
+
+.bads-breadcrumbs--light .bads-breadcrumbs__text {
+    color: var(--color-text-inverse-muted);
+}
+
+.bads-breadcrumbs--light .bads-breadcrumbs__separator {
+    color: var(--color-text-inverse-subtle);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 768px) {
+
+    .bads-breadcrumbs {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .bads-breadcrumbs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .bads-breadcrumbs__list {
+        flex-wrap: nowrap;
+        width: max-content;
+    }
+
+    .bads-breadcrumbs__link,
+    .bads-breadcrumbs__current,
+    .bads-breadcrumbs__text {
+        font-size: var(--font-size-body-mobile);
+        white-space: nowrap;
+    }
+
+}

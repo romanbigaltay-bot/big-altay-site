@@ -1,0 +1,151 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Utilities / Text
+   ========================================================== */
+
+.u-text-left {
+    text-align: left !important;
+}
+
+.u-text-center {
+    text-align: center !important;
+}
+
+.u-text-right {
+    text-align: right !important;
+}
+
+.u-text-primary,
+a.u-text-primary {
+    color: var(--color-primary) !important;
+}
+
+.u-text-accent,
+a.u-text-accent {
+    color: var(--color-accent) !important;
+}
+
+.u-text-muted,
+a.u-text-muted {
+    color: var(--color-text-muted) !important;
+}
+
+.u-text-dark,
+a.u-text-dark {
+    color: var(--color-text) !important;
+}
+
+.u-text-2xs {
+    font-size: 11px !important;
+}
+
+.u-text-xs {
+    font-size: var(--font-size-small, 13px) !important;
+}
+
+.u-text-sm {
+    font-size: 14px !important;
+}
+
+.u-text-base {
+    font-size: 16px !important;
+}
+
+.u-text-lg {
+    font-size: 18px !important;
+}
+
+.u-text-xl {
+    font-size: 20px !important;
+}
+
+.u-text-2xl {
+    font-size: 24px !important;
+}
+
+.u-text-3xl {
+    font-size: 30px !important;
+}
+
+.u-text-4xl {
+    font-size: 36px !important;
+}
+
+.u-text-5xl {
+    font-size: 48px !important;
+}
+
+.u-leading-none {
+    line-height: 1 !important;
+}
+
+.u-leading-tight {
+    line-height: 1.25 !important;
+}
+
+
+.u-text-bold {
+    font-weight: var(--font-weight-bold) !important;
+}
+
+.u-text-semibold {
+    font-weight: var(--font-weight-semibold) !important;
+}
+
+.u-no-underline,
+a.u-no-underline {
+    text-decoration: none !important;
+}
+
+.u-underline,
+a.u-underline {
+    text-decoration: underline !important;
+}
+
+.u-text-inherit,
+a.u-text-inherit {
+    color: inherit !important;
+}
+
+.hover\:u-text-primary:hover,
+a.hover\:u-text-primary:hover {
+    color: var(--color-primary) !important;
+}
+
+.hover\:u-text-dark:hover,
+a.hover\:u-text-dark:hover {
+    color: var(--color-text) !important;
+}
+
+/* ==========================================================
+   Line Clamp Utilities
+   ========================================================== */
+
+.u-clamp-1,
+.u-clamp-2,
+.u-clamp-3,
+.u-clamp-4 {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.u-clamp-1 {
+    -webkit-line-clamp: 1 !important;
+}
+
+.u-clamp-2 {
+    -webkit-line-clamp: 2 !important;
+    min-height: 2.7em;
+}
+
+.u-clamp-3 {
+    -webkit-line-clamp: 3 !important;
+    min-height: 4.5em;
+}
+
+.u-clamp-4 {
+    -webkit-line-clamp: 4 !important;
+    min-height: 6em;
+}

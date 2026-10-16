@@ -1,0 +1,23 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Foundation / Shadow
+   ========================================================== */
+
+:root {
+
+    --shadow-sm:
+        0 2px 8px rgba(0, 0, 0, .08);
+
+    --shadow-md:
+        0 8px 24px rgba(0, 0, 0, .10);
+
+    --shadow-lg:
+        0 16px 40px rgba(0, 0, 0, .14);
+
+    --shadow-xl:
+        0 24px 60px rgba(0, 0, 0, .18);
+
+    --shadow-2xl:
+        0 32px 80px rgba(0, 0, 0, .24);
+
+}

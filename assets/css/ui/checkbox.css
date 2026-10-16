@@ -1,0 +1,273 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Checkbox
+   ========================================================== */
+
+/* ==========================================================
+   Root
+   ========================================================== */
+
+.bads-checkbox {
+    width: 100%;
+}
+
+/* ==========================================================
+   Label
+   ========================================================== */
+
+.bads-checkbox__label {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ==========================================================
+   Native Control
+   ========================================================== */
+
+.bads-checkbox__control {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================
+   Box
+   ========================================================== */
+
+.bads-checkbox__box {
+    position: relative;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .20s ease;
+}
+
+/* ==========================================================
+   Check Mark
+   ========================================================== */
+
+.bads-checkbox__box::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    opacity: 0;
+	
+    transform:
+        rotate(45deg)
+        scale(0);
+
+    transition:
+        opacity .18s ease,
+        transform .18s ease;
+}
+
+/* ==========================================================
+   Text
+   ========================================================== */
+
+.bads-checkbox__text {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+}
+
+/* ==========================================================
+   Hover
+   ========================================================== */
+
+.bads-checkbox__label:hover .bads-checkbox__box {
+    border-color: var(--color-primary);
+}
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+.bads-checkbox__control:focus-visible + .bads-checkbox__box {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(var(--brand-primary-rgb), .10);
+}
+
+/* ==========================================================
+   Checked
+   ========================================================== */
+
+.bads-checkbox__control:checked + .bads-checkbox__box {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.bads-checkbox__control:checked + .bads-checkbox__box::after {
+    opacity: 1;
+
+    transform:
+        rotate(45deg)
+        scale(1);
+}
+
+/* ==========================================================
+   Active
+   ========================================================== */
+
+.bads-checkbox__label:active .bads-checkbox__box {
+    transform: scale(.95);
+}
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+
+.bads-checkbox__control:disabled + .bads-checkbox__box {
+    opacity: .65;
+}
+
+.bads-checkbox__control:disabled ~ .bads-checkbox__text {
+    opacity: .65;
+}
+
+.bads-checkbox__label:has(.bads-checkbox__control:disabled) {
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   Alignment & Centering Modifiers
+   ========================================================== */
+
+/* Centered layout (aligns component in container & centers content) */
+.bads-checkbox--center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Align box and text to middle (ideal for multi-line text) */
+.bads-checkbox--align-center .bads-checkbox__label {
+    align-items: center !important;
+}
+
+.bads-checkbox--align-center .bads-checkbox__box {
+    margin-top: 0 !important;
+    align-self: center !important;
+}
+
+/* Spacing and visual styling for standalone form agreements (152-ФЗ) */
+.bads-checkbox--privacy {
+    margin: 0;
+    width: 100%;
+}
+
+.bads-checkbox--privacy .bads-checkbox__control {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
+
+.bads-checkbox--privacy .bads-checkbox__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.bads-checkbox--privacy.bads-checkbox--center .bads-checkbox__label,
+.bads-checkbox--privacy .bads-checkbox__label {
+    justify-content: center;
+}
+
+.bads-checkbox--privacy .bads-checkbox__box {
+    margin-top: 0 !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    border-radius: 4px !important;
+    flex-shrink: 0;
+    align-self: center !important;
+}
+
+.bads-checkbox--privacy .bads-checkbox__box::after {
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 9px;
+}
+
+.bads-checkbox--privacy .bads-checkbox__text {
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--color-text-muted, #64748b);
+    text-align: left;
+    transition: color .2s ease;
+}
+
+.bads-checkbox--privacy.bads-checkbox--error .bads-checkbox__text,
+.bads-checkbox--privacy .bads-checkbox--error .bads-checkbox__text {
+    color: var(--color-danger, #ef4444);
+}
+
+.bads-checkbox--privacy a {
+    color: var(--color-primary, #019fde);
+    text-decoration: underline;
+    transition: color 0.15s ease;
+}
+
+.bads-checkbox--privacy a:hover {
+    color: var(--color-primary-dark, #0087c2);
+}
+
+/* ==========================================================
+   Error / Invalid State
+   ========================================================== */
+
+.bads-checkbox--error .bads-checkbox__box {
+    border-color: var(--color-danger, #ef4444) !important;
+    box-shadow: 0 0 0 4px rgba(var(--brand-danger-rgb, 239, 68, 68), 0.18);
+}
+
+.bads-checkbox--error .bads-checkbox__text {
+    color: var(--color-danger, #ef4444);
+}
+
+/* Keyframe shake for invalid feedback */
+@keyframes badsShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
+.bads-shake {
+    animation: badsShake 0.4s ease-in-out;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .bads-checkbox__text {
+        font-size: var(--font-size-small-mobile);
+    }
+
+}

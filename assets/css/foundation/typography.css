@@ -1,0 +1,124 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Foundation / Typography
+   ========================================================== */
+
+:root {
+
+
+    /* ======================================================
+       Font Family
+       ====================================================== */
+
+    /* Основной шрифт интерфейса */
+    --font-family-base: "Inter", sans-serif;
+
+    /* Шрифт заголовков */
+    --font-family-heading: "Tenor Sans", sans-serif; 
+    
+
+    /* ======================================================
+       Font Size
+       ====================================================== */
+
+    /* Caption */
+    --font-size-caption: 12px;
+
+    /* Small */
+    --font-size-small: 14px;
+
+    /* Body */
+    --font-size-body: 16px;
+
+    /* Body Large */
+    --font-size-body-lg: 18px;
+
+    /* Heading 4 */
+    --font-size-h4: 24px;
+
+    /* Heading 3 */
+    --font-size-h3: 32px;
+
+    /* Heading 2 */
+    --font-size-h2: 42px;
+
+    /* Heading 1 */
+    --font-size-h1: 48px;
+
+    /* Display */
+    --font-size-display: 64px;
+
+
+    /* ======================================================
+       Font Weight
+       ====================================================== */
+
+    /* Regular */
+    --font-weight-regular: 400;
+
+    /* Medium */
+    --font-weight-medium: 500;
+
+    /* Semibold */
+    --font-weight-semibold: 600;
+
+    /* Bold */
+    --font-weight-bold: 700;
+
+
+    /* ======================================================
+       Line Height
+       ====================================================== */
+
+    /* Очень плотная */
+    --line-height-tight: 1.1;
+
+    /* Заголовки */
+    --line-height-heading: 1.2;
+
+    /* Основной текст */
+    --line-height-body: 1.6;
+
+    /* Увеличенный межстрочный интервал */
+    --line-height-relaxed: 1.8;
+
+
+    /* ======================================================
+       Letter Spacing
+       ====================================================== */
+
+    /* По умолчанию */
+    --letter-spacing-normal: 0;
+
+    /* Заголовки */
+    --letter-spacing-heading: -0.02em;
+
+    /* Крупные Display */
+    --letter-spacing-display: -0.03em;
+
+
+
+    /* ======================================================
+       Responsive Scale
+       ====================================================== */
+
+    /* Планшеты */
+
+    --font-size-h1-tablet: 42px;
+    --font-size-h2-tablet: 36px;
+    --font-size-h3-tablet: 30px;
+    --font-size-display-tablet: 56px;
+
+    /* Мобильные */
+
+    --font-size-h1-mobile: 30px;
+    --font-size-h2-mobile: 26px;
+    --font-size-h3-mobile: 22px;
+    --font-size-h4-mobile: 20px;
+
+    --font-size-body-mobile: 15px;
+    --font-size-small-mobile: 13px;
+
+    --font-size-display-mobile: 40px;
+
+}

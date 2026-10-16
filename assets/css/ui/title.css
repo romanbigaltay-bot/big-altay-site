@@ -1,0 +1,204 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Title
+   ========================================================== */
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-title{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-lg);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Heading
+|--------------------------------------------------------------------------
+*/
+
+.bads-title__heading{
+
+    display:flex;
+    flex-direction:column;
+
+    margin:0;
+
+    color:var(--color-text);
+
+    font-family:var(--font-family-heading);
+
+    font-weight:var(--font-weight-bold);
+
+    line-height:var(--line-height-heading);
+
+    letter-spacing:var(--letter-spacing-heading);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Prefix
+|--------------------------------------------------------------------------
+*/
+
+.bads-title__prefix{
+
+    display:block;
+
+    margin-bottom:.2em;
+
+    color:var(--color-text-muted);
+
+    font-family:var(--font-family-base);
+
+    font-size:.45em;
+
+    font-weight:var(--font-weight-semibold);
+
+    letter-spacing:.08em;
+
+    line-height:1.2;
+
+    text-transform:uppercase;
+
+}
+
+.bads-title__text{
+    display:block;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Subtitle
+|--------------------------------------------------------------------------
+*/
+
+.bads-title__subtitle{
+
+    margin:0;
+
+    max-width:68ch;
+
+    color:var(--color-text-muted);
+
+    font-size:var(--font-size-body-lg);
+
+    line-height:var(--line-height-body);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Variants
+|--------------------------------------------------------------------------
+*/
+
+.bads-title--default .bads-title__heading{
+    color:var(--color-text);
+}
+
+.bads-title--accent .bads-title__heading{
+    color:var(--color-accent);
+}
+
+.bads-title--light .bads-title__heading,
+.bads-title--light .bads-title__subtitle{
+    color:var(--color-text-inverse);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Visual Sizes
+|--------------------------------------------------------------------------
+*/
+
+.bads-title--size-h1 .bads-title__heading{
+    font-size:var(--font-size-h1);
+}
+
+.bads-title--size-h2 .bads-title__heading{
+    font-size:var(--font-size-h2);
+}
+
+.bads-title--size-h3 .bads-title__heading{
+    font-size:var(--font-size-h3);
+}
+
+.bads-title--size-h4 .bads-title__heading{
+    font-size:var(--font-size-h4);
+}
+
+.bads-title--size-h5 .bads-title__heading,
+.bads-title--size-h6 .bads-title__heading{
+    font-size:var(--font-size-body-lg);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Alignment
+|--------------------------------------------------------------------------
+*/
+
+.bads-title--align-left{
+    align-items:flex-start;
+    text-align:left;
+}
+
+.bads-title--align-left .bads-divider{
+    margin-left:var(--bads-divider-offset, var(--space-lg, 24px));
+}
+
+.bads-title--align-left .bads-divider--section,
+.bads-title--align-left .bads-divider--with-text,
+.bads-title--align-left .bads-divider--flush{
+    margin-left:0 !important;
+}
+
+.bads-title--align-center{
+    align-items:center;
+    text-align:center;
+}
+
+.bads-title--align-center .bads-divider{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.bads-title .bads-subtitle{
+    max-width:100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width:768px){
+
+    .bads-title--size-h1 .bads-title__heading{
+        font-size:var(--font-size-h1-mobile);
+    }
+
+    .bads-title--size-h2 .bads-title__heading{
+        font-size:var(--font-size-h2-mobile);
+    }
+
+    .bads-title--size-h3 .bads-title__heading{
+        font-size:var(--font-size-h3-mobile);
+    }
+
+    .bads-title--size-h4 .bads-title__heading{
+        font-size:var(--font-size-h4-mobile);
+    }
+
+    .bads-title__subtitle{
+        font-size:var(--font-size-body-mobile);
+    }
+
+}

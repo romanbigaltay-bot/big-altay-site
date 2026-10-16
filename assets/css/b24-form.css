@@ -1,0 +1,1036 @@
+.lead-form-main {
+    width: 100%;
+}
+
+.lead-form-main__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    margin-bottom: 24px;
+}
+
+.lead-form-main__input {
+    width: 100%;
+    height: 58px;
+    border-radius: 40px;
+    border: 1px solid #c9d1dd;
+    background: #fff;
+    padding: 0 24px;
+    font-size: 16px;
+    color: #3d4b66;
+    outline: none;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+.lead-form-main__field input:hover,
+.lead-form-main__field input:focus {
+    border-color: #00A0E3;
+    box-shadow: 0 0 0 3px rgba(0,160,227,0.08);
+}
+
+.lead-form-main__field input.error {
+    border-color: #e53935;
+}
+
+.lead-form-main__privacy:not(.bads-checkbox) {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    line-height: 1.45;
+    cursor: pointer;
+    margin-bottom: 28px;
+    color: #111;
+}
+
+.lead-form-main__privacy:not(.bads-checkbox) input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 6px;
+    border: 2px solid #bfc9d8;
+    background: #fff;
+    margin-top: 2px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+}
+
+.lead-form-main__privacy input:hover {
+    border-color: #00A0E3;
+}
+
+.lead-form-main__privacy input:checked {
+    background: #00A0E3;
+    border-color: #00A0E3;
+}
+
+.lead-form-main__privacy input:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.lead-form-main__btn {
+    width: 100%;
+    max-width: 285px;
+    min-height: 56px;
+    border-radius: 40px;
+    border: none;
+    background: #9e9e9e;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.25s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.lead-form-main__btn.u-w-full,
+.lead-form-main__btn.bads-btn--block {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.lead-form-main__action {
+    width: 100%;
+}
+
+/* При использовании универсального компонента кнопки BADS */
+.lead-form-main__btn.bads-btn,
+.bads-btn.lead-form-main__btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: auto;
+}
+
+/* Заблокированное состояние: без ховера и теней */
+.lead-form-main__btn:disabled,
+.lead-form-main__btn.is-disabled,
+.lead-form-main__btn[aria-disabled="true"] {
+    background: #9e9e9e !important;
+    color: #fff !important;
+    opacity: 0.55;
+    box-shadow: none !important;
+    transform: none !important;
+    cursor: pointer;
+}
+
+.lead-form-main__btn:disabled:hover,
+.lead-form-main__btn.is-disabled:hover,
+.lead-form-main__btn[aria-disabled="true"]:hover {
+    background: #9e9e9e !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Активное состояние кнопки */
+.lead-form-main__btn.active,
+.lead-form-main__btn:not(.is-disabled):not([aria-disabled="true"]):not(:disabled) {
+    background: #c2185b;
+    opacity: 1;
+}
+
+.lead-form-main__btn.active:hover,
+.lead-form-main__btn:not(.is-disabled):not([aria-disabled="true"]):not(:disabled):hover {
+    background: #ad1457;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(194, 24, 91, 0.25);
+}
+
+.lead-form-main__message {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+
+    .lead-form-main__field input,
+    .lead-form-main__field .bads-input__control,
+    .lead-form-channel__max-pill,
+    .lead-form-main .bads-booking-bar__max-link {
+        height: 52px;
+        min-height: 52px;
+        font-size: 15px;
+    }
+
+    .lead-form-main__btn {
+        max-width: 100%;
+        font-size: 16px;
+    }
+}
+
+.lead-form-main__input {
+    background-color: #fff;
+}
+
+.lead-form-main__input:hover,
+.lead-form-main__input:focus {
+    border-color: #00A0E3;
+    box-shadow: 0 0 0 3px rgba(0,160,227,0.08);
+}
+
+.lead-form-main__field {
+    position: relative;
+    width: 100%;
+}
+
+.lead-form-main__input:-webkit-autofill,
+.lead-form-main__input:-webkit-autofill:hover,
+.lead-form-main__input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: #3d4b66;
+    transition: background-color 9999s ease-out 0s;
+}
+
+.lead-form-main--centered .lead-form-main__btn {
+    margin: 0 auto;
+    display: inline-flex;
+}
+
+.lead-form-main__privacy-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lead-form-main__privacy {
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.lead-form-main__privacy-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lead-form-main--centered .lead-form-main__privacy-inner {
+    width: fit-content;
+}
+
+.lead-form-main__privacy {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.lead-form-main__privacy-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 320px;
+}
+
+.lead-form-main__privacy-inner input {
+    margin: 10px;
+    flex-shrink: 0;
+}
+
+.lead-form-main__privacy-inner span {
+    text-align: left;
+}
+
+.lead-form-main--booking .lead-form-main__fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+    align-items: start;
+}
+
+.lead-form-main--booking .lead-form-main__btn {
+    margin: 0 auto;
+    display: inline-flex;
+}
+
+.lead-form-main--booking .lead-form-main__privacy {
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.lead-form-main--booking select.lead-form-main__input {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-right: 54px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233d4b66' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 14px;
+}
+
+.lead-form-main--booking .lead-form-main__message {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    .lead-form-main--booking .lead-form-main__fields {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.lead-form-main--booking .lead-form-main__column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.lead-form-main--booking .lead-form-main__privacy {
+    margin-bottom: 0;
+}
+
+.lead-form-main__field:has(.lead-form-main__input--email)::before {
+    background-image: url('/wp-content/themes/big-altay/img/lead-form/mail.svg');
+}
+
+.lead-form-main__field:has(input[name="date"])::before {
+    background-image: url('/wp-content/themes/big-altay/img/lead-form/calendar.svg');
+}
+
+.lead-form-main__field:has(select[name="persons"])::before {
+    background-image: url('/wp-content/themes/big-altay/img/lead-form/users.svg');
+}
+
+.lead-form-main--booking select.lead-form-main__input {
+    padding-left: 58px;
+}
+
+.lead-form-success__message {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #3d4b66;
+}
+
+.lead-form-success__message strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 24px;
+    color: #00A0E3;
+}
+
+.lead-form-success {
+    display: block;
+}
+
+/* SELECT */
+
+.lead-form-main select.lead-form-main__input {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-right: 52px;
+}
+
+/* Стрелочка select */
+
+.lead-form-main__field:has(select)::after {
+    content: '';
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300A0E3' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19 9-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* DATE */
+
+.lead-form-main input[type="date"] {
+    cursor: pointer;
+}
+
+/* Календарик */
+.lead-form-main input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Красивые popup */
+
+.lead-form-main select,
+.lead-form-main input[type="date"] {
+    font-size: 16px;
+}
+
+/* Safari fix */
+
+.lead-form-main select:focus,
+.lead-form-main input[type="date"]:focus {
+    outline: none;
+}
+
+/* --- СТИЛИ ДЛЯ БЛОКА БРОНИРОВАНИЯ --- */
+
+.online-booking {
+    padding: 60px 0;
+    /* Легкий контрастный фон секции, чтобы белая карточка выделялась */
+    background-color: #f8fafc; 
+}
+
+/* Оформление самого фрейма (карточки) */
+.online-booking__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Разбиваем на 2 колонки (текст слева, форма справа) */
+    gap: 40px;
+    align-items: center;
+    
+    background: #ffffff;
+    /* Небольшой фоновый градиент для глубины */
+    background: linear-gradient(135deg, #ffffff 0%, #f4fbff 100%);
+    border-radius: 24px;
+    
+    /* Сочная, но мягкая тень с оттенком вашего фирменного цвета */
+    box-shadow: 0 20px 40px rgba(0, 160, 227, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 160, 227, 0.15);
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Акцентная полоса слева для привлечения внимания */
+.online-booking__grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background-color: #00A0E3;
+    border-radius: 24px 0 0 24px;
+}
+
+.online-booking__header {
+    max-width: 480px;
+}
+
+/* Стилизация заголовка */
+.online-booking__title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #1f2937;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+/* Выделение ключевого слова фирменным цветом */
+.online-booking__title span {
+    color: #00A0E3;
+    display: block; /* Сброс на новую строку для выразительности */
+}
+
+/* Стилизация мотивирующего подзаголовка */
+.online-booking__subtitle {
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- Адаптивность для мобильных устройств --- */
+@media (max-width: 992px) {
+    .online-booking__grid {
+        grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
+        padding: 40px 24px;
+        gap: 32px;
+    }
+
+    /* Переносим акцентную полосу наверх */
+    .online-booking__grid::before {
+        width: 100%;
+        height: 6px;
+        border-radius: 24px 24px 0 0;
+    }
+
+    .online-booking__title {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .online-booking__title span {
+        display: inline; /* На мобильных оставляем в одну строку */
+    }
+
+    .online-booking__subtitle {
+        text-align: center;
+        font-size: 15px;
+    }
+}
+
+
+/* --- КАРТОЧКА БРОНИРОВАНИЯ --- */
+.online-booking {
+    padding: 96px 0;
+}
+
+.online-booking__grid {
+    /* Используем flex для жесткого разделения на 2 колонки */
+    display: flex !important; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Выравнивание по вертикали по центру */
+    gap: 60px; /* Расстояние между текстом и формой */
+    
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 160, 227, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+    padding: 50px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Синяя акцентная полоса слева */
+.online-booking__grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background-color: #00A0E3;
+}
+
+/* --- ЛЕВАЯ КОЛОНКА (ТЕКСТ) --- */
+.online-booking__header {
+    flex: 1 1 50%; /* Занимает половину ширины */
+    text-align: left; /* Текст строго по левому краю */
+    padding-right: 20px;
+}
+
+.online-booking__title {
+    font-size: 40px;
+    font-weight: 800;
+    color: #00A0E3; /* Ваш синий цвет */
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+}
+
+.online-booking__subtitle {
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- ПРАВАЯ КОЛОНКА (ФОРМА) --- */
+.online-booking__box {
+    flex: 1 1 50%; /* Занимает вторую половину ширины */
+    width: 100%;
+    max-width: 450px; /* Ограничиваем ширину формы, чтобы поля не были слишком длинными */
+}
+
+/* Выравниваем чекбокс по левому краю (перебиваем ваши дефолтные стили) */
+.online-booking__box .lead-form-main__privacy {
+    justify-content: flex-start;
+}
+.online-booking__box .lead-form-main__privacy-inner {
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.online-booking__box .lead-form-main__btn {
+    margin: 0; /* Прижимаем кнопку влево */
+}
+
+/* --- АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ --- */
+@media (max-width: 992px) {
+    .online-booking__grid {
+        flex-direction: column; /* На мобильных выстраиваем друг под друга */
+        padding: 40px 24px;
+        gap: 40px;
+    }
+
+    /* Полоска перемещается наверх */
+    .online-booking__grid::before {
+        width: 100%;
+        height: 6px;
+    }
+
+    .online-booking__header {
+        flex: none;
+        width: 100%;
+        text-align: center; /* Центрируем текст на телефонах */
+        padding-right: 0;
+    }
+    
+    .online-booking__box {
+        flex: none;
+        max-width: 100%;
+    }
+
+    /* Возвращаем центрирование формы на мобильных (по желанию) */
+    .online-booking__box .lead-form-main__btn {
+        margin: 0 auto;
+    }
+}
+
+
+/* --- УДАЛЕНИЕ СТАРОЙ ЛИНИИ ИЗ ТЕМЫ --- */
+
+/* Убираем нижнюю рамку у заголовка, если она была там */
+.online-booking__header {
+    border: none !important;
+}
+
+/* Отключаем разделительную линию (псевдоэлемент), если она была задана в теме */
+.online-booking__grid::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* На всякий случай отключаем рамки у внутренних боксов */
+.online-booking__box {
+    border: none !important;
+}
+
+
+/*
+----------------------------------------
+Компактная форма (Inline Phone + Button)
+----------------------------------------
+*/
+
+.lead-form-compact {
+    width: 100% !important;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.lead-form-main--compact {
+    max-width: 900px;
+    width: 100% !important;
+    margin: 0 auto;
+}
+
+.lead-form-main--compact .lead-form-main__fields {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+}
+
+.lead-form-main--compact .lead-form-main__field {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+}
+
+.lead-form-main--compact .lead-form-main__field .bads-input {
+    width: 100% !important;
+}
+
+.lead-form-main--compact .lead-form-main__field .bads-input__control {
+    width: 100% !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    border-radius: var(--radius-pill, 9999px) !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important;
+}
+
+.lead-form-main--compact .lead-form-main__action {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+.lead-form-main--compact .lead-form-main__btn,
+.lead-form-main--compact .bads-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    border-radius: var(--radius-pill, 9999px) !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0 20px !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important;
+}
+
+.lead-form-main--compact .lead-form-main__privacy,
+.lead-form-main--compact .bads-checkbox--privacy {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+
+.lead-form-main--compact .lead-form-main__privacy:not(.bads-checkbox) .bads-checkbox__label {
+    justify-content: center !important;
+    text-align: left;
+}
+
+.lead-form-main--compact .lead-form-main__privacy:not(.bads-checkbox) span {
+    font-size: 13px;
+    color: #8b94a3;
+}
+
+@media (max-width: 768px) {
+    .lead-form-main--compact .lead-form-main__fields {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .lead-form-main--compact .lead-form-main__field .bads-input__control,
+    .lead-form-main--compact .lead-form-main__btn,
+    .lead-form-main--compact .bads-btn {
+        height: 54px !important;
+        min-height: 54px !important;
+        font-size: 15px !important;
+    }
+}
+
+/* Shake animation for validation feedback */
+@keyframes badsShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-6px);
+    }
+    40%, 80% {
+        transform: translateX(6px);
+    }
+}
+
+.bads-shake {
+    animation: badsShake 0.4s ease-in-out !important;
+}
+
+/* Red error highlight for inputs */
+.lead-form-main .lead-form-main__field input.is-invalid,
+.lead-form-main .lead-form-main__field input.error,
+.lead-form-main .bads-input__control.is-invalid,
+.lead-form-main .bads-input__control.error,
+.lead-form-main .bads-input__field--error .bads-input__control,
+.lead-form-main .bads-input--error .bads-input__control {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.22) !important;
+}
+
+
+/*
+----------------------------------------
+Усиленная форма консультации (BADS)
+----------------------------------------
+*/
+
+.lead-form-main--consultation {
+    width: 100%;
+}
+
+.lead-form-main--consultation .lead-form-main__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* Табы выбора канала связи */
+.lead-form-channel__tabs {
+    display: flex;
+    gap: 6px;
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: 9999px;
+    margin-bottom: 0;
+    box-sizing: border-box;
+}
+
+.lead-form-channel__tab {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 9999px;
+    background: transparent;
+    color: #64748b;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.lead-form-channel__tab:hover {
+    color: #0f172a;
+}
+
+.lead-form-channel__tab--active {
+    background: #ffffff;
+    color: #0284c7;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.lead-form-channel__tab-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.lead-form-channel__panel {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.lead-form-channel__panel[hidden] {
+    display: none !important;
+}
+
+.lead-form-channel .bads-tabs__panel--active {
+    animation: lead-form-channel-fade 0.15s ease-out;
+}
+
+@keyframes lead-form-channel-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Компактная плашка мессенджера MAX (соразмерно инпуту 52px) */
+.lead-form-channel__max-pill,
+.lead-form-main .bads-booking-bar__max-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: 52px;
+    min-height: 52px;
+    max-height: 52px;
+    padding: 0 20px;
+    background: linear-gradient(135deg, rgba(0, 160, 227, 0.08) 0%, rgba(2, 132, 199, 0.04) 100%);
+    border: 1px solid rgba(0, 160, 227, 0.45);
+    border-radius: var(--radius-pill, 9999px);
+    text-decoration: none;
+    color: #0f172a;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    transform: none !important;
+}
+
+.lead-form-channel__max-pill:hover,
+.lead-form-main .bads-booking-bar__max-link:hover {
+    background: linear-gradient(135deg, rgba(0, 160, 227, 0.14) 0%, rgba(2, 132, 199, 0.07) 100%);
+    border-color: #00a0e3;
+    box-shadow: 0 0 0 3px rgba(0, 160, 227, 0.12);
+    transform: none !important;
+}
+
+.lead-form-channel__max-pill .bads-booking-bar__max-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.lead-form-channel__max-pill .bads-booking-bar__max-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.lead-form-channel__max-pill .bads-booking-bar__max-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0087c2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lead-form-channel__max-pill .bads-booking-bar__max-arrow {
+    color: #00a0e3;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.lead-form-channel__max-pill:hover .bads-booking-bar__max-arrow {
+    transform: translate(2px, -2px);
+}
+
+/* Карточка мессенджера MAX (legacy fallback) */
+.lead-form-channel__max-card {
+    background: linear-gradient(135deg, #f0fdfa 0%, #f0f9ff 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.lead-form-channel__max-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 8px;
+    box-shadow: 0 2px 6px rgba(0, 160, 227, 0.12);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lead-form-channel__max-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.lead-form-channel__max-info {
+    flex: 1;
+}
+
+.lead-form-channel__max-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 2px;
+}
+
+.lead-form-channel__max-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.lead-form-channel__max-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #00A0E3;
+    color: #ffffff !important;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+    flex-shrink: 0;
+}
+
+.lead-form-channel__max-btn:hover {
+    background: #0284c7;
+    transform: translateY(-1px);
+}
+
+/* Поле комментария / вопроса */
+.lead-form-main__textarea {
+    min-height: 110px;
+    height: auto;
+    padding: 16px 20px !important;
+    border-radius: 18px !important;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.lead-form-main__field:has(.lead-form-main__input--email)::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>');
+}
+
+.lead-form-main--consultation .lead-form-main__btn {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .lead-form-channel__tabs {
+        gap: 4px;
+        padding: 4px;
+    }
+
+    .lead-form-channel__tab {
+        height: 38px;
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .lead-form-channel__max-pill,
+    .lead-form-main .bads-booking-bar__max-link {
+        height: 54px;
+        padding: 0 18px;
+    }
+
+    .lead-form-channel__max-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .lead-form-channel__max-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+

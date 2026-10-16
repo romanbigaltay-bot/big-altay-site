@@ -1,0 +1,7 @@
+#mega-menu {
+    display: none;
+}
+
+#mega-menu.is-open {
+    display: flex;
+}

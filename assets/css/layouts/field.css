@@ -1,0 +1,443 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Field
+   ========================================================== */
+
+.bads-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+/* ==========================================================
+   Label
+   ========================================================== */
+
+.bads-field__label {
+    margin: 0;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+/* ==========================================================
+   Hint
+   ========================================================== */
+
+.bads-field__hint {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-body);
+}
+
+/* ==========================================================
+   Error
+   ========================================================== */
+
+.bads-field__error {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--color-danger);
+}
+
+/* ==========================================================
+   Hero Booking Form & Divider Spacing
+   ========================================================== */
+
+.bads-hero__booking-divider {
+    margin: var(--space-md) 0 var(--space-xs);
+    width: 100%;
+}
+
+.bads-hero__booking-form {
+    margin-top: 0;
+    width: 100%;
+}
+
+/* ==========================================================
+   Booking Bar Layout (3 Rows: Criteria, Channel/Target, Comment & Action)
+   ========================================================== */
+
+.bads-booking-bar {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1.15fr;
+    gap: var(--space-md);
+    width: 100%;
+}
+
+/* Row 1: Direction (1), Date (2), Duration Range (3) */
+.bads-booking-bar__direction {
+    grid-column: 1 / 2;
+    position: relative;
+    z-index: 30;
+}
+
+.bads-booking-bar__date {
+    grid-column: 2 / 3;
+    position: relative;
+    z-index: 29;
+}
+
+.bads-booking-bar__duration {
+    grid-column: 3 / 4;
+    position: relative;
+    z-index: 28;
+}
+
+/* Duration Slider Card matching BADS UI standards */
+.bads-duration-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 52px;
+    height: 100%;
+    padding: 6px 18px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    box-sizing: border-box;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.bads-duration-card:hover {
+    border-color: var(--color-border-hover, #c7d2ca);
+}
+
+.bads-duration-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    line-height: var(--line-height-tight);
+}
+
+.bads-duration-card__label {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-regular);
+}
+
+.bads-duration-card__value {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.bads-duration-card .bads-range__control {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--color-surface-container, rgba(0, 0, 0, 0.08));
+    border-radius: var(--radius-pill, 9999px);
+    outline: none;
+    cursor: pointer;
+    margin: 4px 0 2px;
+    transition: background .2s ease;
+}
+
+.bads-duration-card .bads-range__control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 2px solid #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    cursor: grab;
+    transition: transform .15s ease;
+}
+
+.bads-duration-card .bads-range__control::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.bads-duration-card .bads-range__control::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 2px solid #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    cursor: grab;
+}
+
+.bads-duration-card__footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--color-text-muted);
+    line-height: 1;
+}
+
+/* Row 2: Guests (1), Channel Select (2), Channel Target Field/Link (3) */
+.bads-booking-bar__persons {
+    grid-column: 1 / 2;
+    position: relative;
+    z-index: 22;
+}
+
+.bads-booking-bar__channel-select {
+    grid-column: 2 / 3;
+    position: relative;
+    z-index: 21;
+}
+
+.bads-booking-bar__channel-target {
+    grid-column: 3 / 4;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+}
+
+.bads-booking-bar__channel-target .lead-form-channel__panel {
+    width: 100%;
+}
+
+/* Legacy / Alternative Tabs styling (if used in other forms) */
+.bads-booking-bar__tabs {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(var(--brand-primary-rgb), 0.05);
+    border: 1px solid rgba(var(--brand-primary-rgb), 0.08);
+    border-radius: var(--radius-pill);
+    padding: 3px;
+    gap: 4px;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.bads-booking-bar__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.bads-booking-bar__tab:hover {
+    color: var(--color-text-main);
+}
+
+.bads-booking-bar__tab--active,
+.lead-form-channel__tab--active {
+    background: #ffffff !important;
+    color: var(--color-primary) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.bads-booking-bar__tab-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+/* MAX Messenger Direct Link Pill inside Bar */
+.bads-booking-bar__max-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    height: 52px;
+    padding: 0 var(--space-md);
+    background: linear-gradient(135deg, rgba(0, 160, 227, 0.08) 0%, rgba(2, 132, 199, 0.04) 100%);
+    border: 1.5px solid rgba(0, 160, 227, 0.35);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.bads-booking-bar__max-link:hover {
+    background: linear-gradient(135deg, rgba(0, 160, 227, 0.14) 0%, rgba(2, 132, 199, 0.07) 100%);
+    border-color: #00a0e3;
+    box-shadow: 0 4px 12px rgba(0, 160, 227, 0.15);
+    transform: translateY(-1px);
+}
+
+.bads-booking-bar__max-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.bads-booking-bar__max-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bads-booking-bar__max-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0087c2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bads-booking-bar__max-arrow {
+    color: #00a0e3;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.bads-booking-bar__max-link:hover .bads-booking-bar__max-arrow {
+    transform: translate(2px, -2px);
+}
+
+/* Row 3: Free Comment (Cols 1-2) & Submit Column with Privacy (Col 3) */
+.bads-booking-bar__comment {
+    grid-column: 1 / 3;
+    position: relative;
+    z-index: 10;
+}
+
+.bads-booking-bar__comment .bads-textarea {
+    width: 100%;
+    min-height: 76px;
+    height: 76px;
+    padding: 12px 20px;
+    border-radius: var(--radius-lg);
+    font-family: inherit;
+    font-size: var(--font-size-body);
+    resize: vertical;
+    line-height: 1.45;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.bads-booking-bar__comment .bads-textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(var(--brand-primary-rgb), .10);
+}
+
+.bads-booking-bar__submit-col {
+    grid-column: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.bads-booking-bar__submit-col .bads-btn {
+    width: 100%;
+    min-height: 52px;
+    height: 52px;
+}
+
+/* Allow click on disabled submit button to show validation highlights without hover effects */
+.lead-form-main .lead-form-main__btn[aria-disabled="true"],
+.lead-form-main .lead-form-main__btn.is-disabled {
+    opacity: .55;
+    background: #9e9e9e !important;
+    color: #fff !important;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.lead-form-main .lead-form-main__btn[aria-disabled="true"]:hover,
+.lead-form-main .lead-form-main__btn.is-disabled:hover {
+    background: #9e9e9e !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Privacy notice under comment and submit button */
+.bads-booking-bar__privacy {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4px 4px 0;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .bads-booking-bar {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bads-booking-bar__direction {
+        grid-column: 1 / -1;
+    }
+
+    .bads-booking-bar__date {
+        grid-column: 1 / 2;
+    }
+
+    .bads-booking-bar__duration {
+        grid-column: 2 / 3;
+    }
+
+    .bads-booking-bar__persons {
+        grid-column: 1 / 2;
+    }
+
+    .bads-booking-bar__channel-select {
+        grid-column: 2 / 3;
+    }
+
+    .bads-booking-bar__channel-target {
+        grid-column: 1 / -1;
+    }
+
+    .bads-booking-bar__comment {
+        grid-column: 1 / -1;
+    }
+
+    .bads-booking-bar__submit-col {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .bads-booking-bar {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .bads-booking-bar__direction,
+    .bads-booking-bar__date,
+    .bads-booking-bar__duration,
+    .bads-booking-bar__persons,
+    .bads-booking-bar__channel-select,
+    .bads-booking-bar__channel-target,
+    .bads-booking-bar__comment,
+    .bads-booking-bar__submit-col {
+        grid-column: 1 / -1;
+    }
+
+    .bads-booking-bar__max-sub {
+        display: none;
+    }
+}

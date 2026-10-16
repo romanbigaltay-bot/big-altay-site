@@ -1,0 +1,70 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Section
+   ========================================================== */
+
+.bads-section {
+    position: relative;
+}
+
+/* ==========================================================
+   Vertical Spacing
+   ========================================================== */
+
+.bads-section--none {
+    padding-block: 0;
+}
+
+
+.bads-section--xs {
+    padding-block: var(--space-xl);
+}
+
+
+.bads-section--sm {
+    padding-block: var(--space-2xl);
+}
+
+
+.bads-section--md {
+    padding-block: var(--space-3xl);
+}
+
+
+.bads-section--lg {
+    padding-block: var(--space-4xl);
+}
+
+
+.bads-section--xl {
+    padding-block: var(--space-5xl);
+}
+
+.bads-section--hero {
+	padding-top: 0px;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+
+@media (max-width:768px) {
+
+    .bads-section--sm {
+        padding-block: var(--space-xl);
+    }
+
+    .bads-section--md {
+        padding-block: var(--space-2xl);
+    }
+
+    .bads-section--lg {
+        padding-block: var(--space-3xl);
+    }
+
+    .bads-section--xl {
+        padding-block: var(--space-4xl);
+    }
+
+}

@@ -1,0 +1,52 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Utilities / Flex
+   ========================================================== */
+
+.u-flex-row {
+    flex-direction: row !important;
+}
+
+.u-flex-column {
+    flex-direction: column !important;
+}
+
+.u-flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.u-items-start {
+    align-items: flex-start !important;
+}
+
+.u-items-center {
+    align-items: center !important;
+}
+
+.u-items-end {
+    align-items: flex-end !important;
+}
+
+.u-justify-start {
+    justify-content: flex-start !important;
+}
+
+.u-justify-center {
+    justify-content: center !important;
+}
+
+.u-justify-end {
+    justify-content: flex-end !important;
+}
+
+.u-justify-between {
+    justify-content: space-between !important;
+}
+
+.u-justify-around {
+    justify-content: space-around !important;
+}
+
+.u-justify-evenly {
+    justify-content: space-evenly !important;
+}

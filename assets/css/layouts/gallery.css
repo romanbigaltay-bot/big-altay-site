@@ -1,0 +1,124 @@
+/**
+ * ============================================================================
+ * Big Altay Design System (BADS)
+ * Layout / Gallery
+ * ============================================================================
+ */
+
+/*
+|--------------------------------------------------------------------------
+| Base Grid
+|--------------------------------------------------------------------------
+| Используем 3-колоночную сетку. Алгоритм 'dense' заполняет пустоты, 
+| автоматически формируя схемы A, B, C, D на основе массива из Builder'а.
+*/
+
+.bads-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg); /* Отступ между сегментами */
+}
+
+/* Убираем отступ у последнего сегмента в секции */
+.bads-gallery:last-child {
+    margin-bottom: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Items & Shapes (Паттерны сегментов)
+|--------------------------------------------------------------------------
+*/
+
+.bads-gallery__item {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Форма 1x1 (Занимает 1 колонку, 1 строку) */
+.bads-gallery__item--1x1 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Форма 2x2 (Занимает 2 колонки, 2 строки) */
+.bads-gallery__item--2x2 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Форма 1x2 (Вертикальная: 1 колонка, 2 строки) */
+.bads-gallery__item--1x2 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+/* Форма 2x1 (Горизонтальная: 2 колонки, 1 строка) */
+.bads-gallery__item--2x1 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* 
+ * Принудительно заставляем медиа-компонент заполнять всю 
+ * выделенную грид-ячейку, игнорируя собственные пропорции 
+ */
+.bads-gallery__item .bads-media,
+.bads-gallery__item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 992px) {
+    /* На планшете переходим на 2 колонки. Паттерны адаптируются. */
+    .bads-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Широкие блоки теперь занимают всю ширину (2 колонки) */
+    .bads-gallery__item--2x2,
+    .bads-gallery__item--2x1 {
+        grid-column: span 2;
+    }
+
+    /* Узкие блоки занимают по 1 колонке */
+    .bads-gallery__item--1x1,
+    .bads-gallery__item--1x2 {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 576px) {
+    /* На мобилке все схлопывается в 1 колонку */
+    .bads-gallery {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    /* Сбрасываем сложные формы грида */
+    .bads-gallery__item--1x1,
+    .bads-gallery__item--2x2,
+    .bads-gallery__item--1x2,
+    .bads-gallery__item--2x1 {
+        grid-column: span 1;
+        grid-row: auto; 
+    }
+    
+    /* Добавляем фиксированное соотношение для аккуратного стека */
+    .bads-gallery__item {
+        aspect-ratio: 4 / 3;
+    }
+}

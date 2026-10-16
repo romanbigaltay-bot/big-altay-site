@@ -1,0 +1,177 @@
+/**
+ * ============================================================================
+ * Big Altay Design System (BADS)
+ * UI / Media
+ * ============================================================================
+ */
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+.bads-media {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    isolation: isolate;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Image
+|--------------------------------------------------------------------------
+*/
+
+.bads-media__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Fit
+|--------------------------------------------------------------------------
+*/
+
+.bads-media--fit-cover .bads-media__image {
+    object-fit: cover;
+}
+
+.bads-media--fit-contain .bads-media__image {
+    object-fit: contain;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Height
+|--------------------------------------------------------------------------
+*/
+
+.bads-media--height-auto {
+}
+
+.bads-media--height-hero {
+    height: var(--bads-size-hero-height);
+}
+
+.bads-media--height-banner {
+
+    height: 440px;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Radius
+|--------------------------------------------------------------------------
+*/
+
+.bads-media--rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.bads-media--rounded-sm .bads-media__image {
+    border-radius: inherit;
+}
+
+.bads-media--rounded-md {
+    border-radius: var(--radius-md);
+}
+
+.bads-media--rounded-md .bads-media__image {
+    border-radius: inherit;
+}
+
+.bads-media--rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.bads-media--rounded-lg .bads-media__image {
+    border-radius: inherit;
+}
+
+.bads-media--rounded {
+    border-radius: var(--radius-xl);
+}
+
+.bads-media--rounded .bads-media__image {
+    border-radius: inherit;
+}
+
+.bads-media--rounded-2xl {
+    border-radius: var(--radius-2xl);
+}
+
+.bads-media--rounded-2xl .bads-media__image {
+    border-radius: inherit;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Ratio
+|--------------------------------------------------------------------------
+*/
+
+.bads-media--ratio-square {
+    aspect-ratio: 1 / 1;
+}
+
+.bads-media--ratio-landscape {
+    aspect-ratio: 16 / 9;
+}
+
+.bads-media--ratio-3-2,
+.bads-media--ratio-photo {
+    aspect-ratio: 3 / 2;
+}
+
+.bads-media--ratio-wide {
+    aspect-ratio: 21 / 9;
+}
+
+.bads-media--ratio-portrait {
+    aspect-ratio: 3 / 4;
+}
+
+.bads-media--ratio-banner {
+    aspect-ratio: 16 / 5;
+}
+
+
+.bads-media--ratio-square,
+.bads-media--ratio-landscape,
+.bads-media--ratio-3-2,
+.bads-media--ratio-photo,
+.bads-media--ratio-wide,
+.bads-media--ratio-portrait,
+.bads-media--ratio-banner {
+
+    overflow: hidden;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Shadow
+|--------------------------------------------------------------------------
+*/
+
+.bads-media--shadow-sm {
+    box-shadow: var(--shadow-sm);
+}
+
+.bads-media--shadow-md {
+    box-shadow: var(--shadow-md);
+}
+
+.bads-media--shadow-lg {
+    box-shadow: var(--shadow-lg);
+}
+
+.bads-media--shadow-xl {
+    box-shadow: var(--shadow-xl);
+}

@@ -1,0 +1,104 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   UI / Divider
+   ========================================================== */
+
+.bads-divider {
+
+    --bads-divider-width: 90px;
+    --bads-divider-offset: var(--space-lg, 24px);
+
+    width: var(--bads-divider-width);
+    height: 4px;
+
+    margin-left: var(--bads-divider-offset);
+
+    flex-shrink: 0;
+
+    border-radius: var(--radius-pill);
+
+    background: transparent;
+
+}
+
+.bads-divider--flush {
+    margin-left: 0 !important;
+}
+
+/* ==========================================================
+   Accent Divider
+   ========================================================== */
+
+.bads-divider--primary {
+    background: var(--color-primary);
+}
+
+.bads-divider--accent {
+    background: var(--color-accent);
+}
+
+.bads-divider--light {
+    background: var(--color-border);
+}
+
+/* ==========================================================
+   Section Divider
+   ========================================================== */
+
+.bads-divider--section {
+
+    width: 100%;
+    height: 1px;
+
+    margin-left: 0;
+
+    border-radius: 0;
+
+    background: var(--color-border);
+
+}
+
+/* ==========================================================
+   Divider With Text (Split Line)
+   ========================================================== */
+
+.bads-divider--with-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: var(--bads-divider-width, 100%);
+    height: auto;
+    margin-left: 0;
+    background: transparent;
+    border-radius: 0;
+    gap: var(--space-md, 16px);
+}
+
+.bads-divider--with-text::before,
+.bads-divider--with-text::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-border, #e2e8f0);
+}
+
+.bads-divider--with-text.bads-divider--light::before,
+.bads-divider--with-text.bads-divider--light::after {
+    background: var(--color-border, #e2e8f0);
+}
+
+.bads-divider--with-text.bads-divider--primary::before,
+.bads-divider--with-text.bads-divider--primary::after {
+    background: rgba(var(--brand-primary-rgb, 1, 159, 222), 0.25);
+}
+
+.bads-divider__text {
+    flex-shrink: 0;
+    font-size: var(--font-size-xs, 11px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #94a3b8);
+    white-space: nowrap;
+    user-select: none;
+}

@@ -1,0 +1,44 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Components / Anchor Nav
+   ========================================================== */
+
+.bads-anchor-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+    width: auto;
+}
+
+.bads-anchor-nav__link {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.bads-anchor-nav__link:hover,
+.bads-anchor-nav__link:focus {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.bads-anchor-nav__link.is-active {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+    .bads-anchor-nav {
+        gap: var(--space-sm);
+    }
+}

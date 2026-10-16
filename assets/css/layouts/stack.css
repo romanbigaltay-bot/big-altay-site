@@ -1,0 +1,100 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Layout / Stack
+   ========================================================== */
+
+.bads-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+	min-width: 0;
+}
+
+.bads-stack > * {
+
+    min-width: 0;
+
+}
+
+/* ==========================================================
+   Gap Variants
+   ========================================================== */
+
+.bads-stack--none {
+	gap: 0px;
+}
+
+.bads-stack--2xs {
+	gap: var(--space-2xs);
+}
+
+.bads-stack--xs {
+    gap: var(--space-xs);
+}
+
+.bads-stack--sm {
+    gap: var(--space-sm);
+}
+
+.bads-stack--md {
+    gap: var(--space-md);
+}
+
+.bads-stack--lg {
+    gap: var(--space-lg);
+}
+
+.bads-stack--xl {
+    gap: var(--space-xl);
+}
+
+/* ==========================================================
+   Horizontal Alignment
+   ========================================================== */
+
+.bads-stack--start {
+    align-items: flex-start;
+}
+
+.bads-stack--center {
+    align-items: center;
+}
+
+.bads-stack--end {
+    align-items: flex-end;
+}
+
+.bads-stack--stretch {
+    align-items: stretch;
+}
+
+/* ==========================================================
+   Text Alignment
+   ========================================================== */
+
+.bads-stack--text-center {
+    text-align: center;
+}
+
+.bads-stack--text-left {
+    text-align: left;
+}
+
+/* ========================================================= */
+.bads-stack--fill {
+    height: 100%;
+}
+
+.bads-stack--fill > :last-child {
+    margin-top: auto;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width:768px) {
+    .bads-stack {
+        gap: var(--space-md);
+    }
+}

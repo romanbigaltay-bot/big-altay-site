@@ -1,0 +1,440 @@
+.promotions-form {
+    padding-bottom: 80px;
+}
+
+.promotions-form__grid {
+
+    display: grid;
+
+    grid-template-columns: minmax(0,1fr) 500px;
+
+    gap: 70px;
+
+    align-items: center;
+
+    padding: 70px;
+
+    border-radius: 36px;
+
+    background: #F5F7FA;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.08);
+
+	border: 1px solid rgba(1, 159, 222, .15);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.promotions-form__grid::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -140px;
+    right: -140px;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            rgba(1,159,222,.12),
+            transparent 70%
+        );
+
+}
+
+.promotions-form__grid::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -100px;
+    bottom: -100px;
+
+    width: 240px;
+    height: 240px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            rgba(208,36,87,.07),
+            transparent 70%
+        );
+
+}
+
+.promotions-form__title {
+
+    margin: 0 0 26px;
+
+    font-size: 46px;
+
+    line-height: 1.1;
+
+    max-width: 680px;
+
+}
+
+.promotions-form__subtitle {
+
+    margin: 0 0 26px;
+
+    font-size: 24px;
+	text-align: center;
+
+    line-height: 1.1;
+
+    max-width: 680px;
+
+}
+
+.promotions-form__divider {
+    width: 90px;
+    height: 4px;
+
+    margin-bottom: 32px;
+	margin-left: 24px;
+
+    border-radius: 999px;
+
+    background: #019fde;
+}
+
+.promotions-form__description {
+
+    max-width: 620px;
+
+    margin-bottom: 40px;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+}
+
+.promotions-form__benefits {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.promotions-form__benefit {
+    position: relative;
+
+    padding-left: 32px;
+
+    font-size: 17px;
+}
+
+.promotions-form__benefit::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+
+    color: #2E9E53;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.promotions-form__content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.promotions-form__form {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 60px;
+
+    border-radius: 28px;
+
+    background: #fff;
+
+    box-shadow:
+        0 18px 60px rgba(0,0,0,.10);
+
+}
+
+.promotions-form__status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    gap: 10px;
+
+    margin: 0 auto 22px;
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(46, 158, 83, .08);
+
+    color: #2E9E53;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: .02em;
+}
+
+.promotions-form__status-dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #2E9E53;
+
+    box-shadow:
+        0 0 0 0 rgba(46,158,83,.55);
+
+    animation: promotions-status-pulse 2s infinite;
+}
+
+@keyframes promotions-status-pulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(46,158,83,.45);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 10px rgba(46,158,83,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(46,158,83,0);
+    }
+
+}
+
+@media (max-width:1200px){
+
+    .promotions-form{
+
+        padding-bottom:70px;
+
+    }
+
+    .promotions-form__grid{
+
+        grid-template-columns:minmax(0,1fr) 440px;
+
+        gap:50px;
+
+        padding:56px;
+
+    }
+
+    .promotions-form__title{
+
+        font-size:40px;
+
+    }
+
+    .promotions-form__description{
+
+        font-size:17px;
+
+    }
+
+    .promotions-form__form{
+
+        padding:46px;
+
+    }
+
+}
+
+@media (max-width:991px){
+
+    .promotions-form{
+
+        padding-bottom:60px;
+
+    }
+
+    .promotions-form__grid{
+
+        grid-template-columns:1fr;
+
+        gap:48px;
+
+        padding:48px;
+
+    }
+
+    .promotions-form__content{
+
+        text-align:center;
+
+    }
+
+    .promotions-form__title{
+
+        font-size:34px;
+
+        margin-bottom:24px;
+
+    }
+
+    .promotions-form__divider{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+    .promotions-form__description{
+
+        max-width:680px;
+
+        margin:0 auto 36px;
+
+        font-size:16px;
+
+    }
+
+    .promotions-form__benefits{
+
+        display:inline-flex;
+
+        align-items:flex-start;
+
+        gap:14px;
+
+        margin:0 auto;
+
+    }
+
+    .promotions-form__benefit{
+
+        text-align:left;
+
+    }
+
+    .promotions-form__form{
+
+        max-width:620px;
+
+        width:100%;
+
+        margin:0 auto;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .promotions-form{
+
+        padding-bottom:40px;
+
+    }
+
+    .promotions-form__grid{
+
+        padding:20px 16px;
+
+        gap:36px;
+
+        border-radius:24px;
+
+    }
+
+    .promotions-form__title{
+
+        font-size:24px;
+
+        margin-bottom:20px;
+
+    }
+
+    .promotions-form__divider{
+
+        margin-bottom:24px;
+
+    }
+
+    .promotions-form__description{
+
+        font-size:14px;
+
+        line-height:1.7;
+
+        margin-bottom:28px;
+
+    }
+
+    .promotions-form__benefits{
+
+        gap:12px;
+
+    }
+
+    .promotions-form__benefit{
+
+        font-size:14px;
+
+        padding-left:26px;
+
+    }
+
+    .promotions-form__benefit::before{
+
+        font-size:18px;
+
+    }
+
+    .promotions-form__form{
+
+        padding:20px 16px;
+
+        border-radius:20px;
+
+    }
+
+    .promotions-form__subtitle{
+
+        font-size:20px;
+
+        margin-bottom:20px;
+
+    }
+
+    .promotions-form__status{
+
+        font-size:12px;
+
+        padding:8px 14px;
+
+    }
+
+}

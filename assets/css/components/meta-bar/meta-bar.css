@@ -1,0 +1,58 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Component: Meta Bar (Article/Post metadata layout)
+   ========================================================== */
+
+.bads-meta-bar {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bads-meta-bar--bordered {
+    border-top: 1px solid rgba(var(--brand-primary-rgb, 1, 159, 222), 0.12);
+}
+
+.bads-meta-bar__date {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--font-size-small, 14px);
+    font-weight: 500;
+}
+
+.bads-meta-bar__reactions {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* 2x Modifier */
+.bads-meta-bar--2x .bads-meta-bar__date {
+    font-size: 1.125rem; /* ~18px */
+    font-weight: 600;
+    gap: 12px;
+}
+
+.bads-meta-bar--2x .bads-meta-bar__date svg,
+.bads-meta-bar--2x .bads-meta-bar__date .bads-icon {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .bads-meta-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-md, 16px) !important;
+    }
+
+    .bads-meta-bar__date {
+        padding-left: 0 !important;
+    }
+
+    .bads-meta-bar__reactions {
+        width: 100% !important;
+        padding-right: 0 !important;
+        justify-content: flex-start !important;
+    }
+}

@@ -1,0 +1,17 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Foundation / Radius
+   ========================================================== */
+
+:root {
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+
+    --radius-pill: 999px;
+    --radius-circle: 50%;
+
+}

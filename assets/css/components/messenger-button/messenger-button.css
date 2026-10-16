@@ -1,0 +1,27 @@
+.messenger-button {
+    position: fixed;
+
+    right: clamp(16px, 3vw, 48px);
+    bottom: clamp(16px, 3vw, 48px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    line-height: 0;
+
+    transition: transform .2s ease;
+}
+
+.messenger-button:hover {
+    transform: scale(1.08);
+}
+
+.messenger-button__icon {
+    display: block;
+
+    width: 54px;
+    height: 54px;
+}

@@ -1,0 +1,300 @@
+/* ==========================================================
+   Big Altay Design System (BADS)
+   Components / Slider
+   ========================================================== */
+
+/*
+|--------------------------------------------------------------------------
+| Base Container
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Viewport & Track
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider__viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Generous vertical padding prevents clipping of floating cards and shadows; zero horizontal to prevent neighbor slide protrusion */
+    padding: var(--space-md, 16px) 0 var(--space-2xl, 36px) 0;
+    margin: calc(var(--space-md, 16px) * -1) 0 calc(var(--space-2xl, 36px) * -1) 0;
+}
+
+.bads-slider__track {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: transform var(--motion-duration-slow, 0.45s) cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    touch-action: pan-y pinch-zoom;
+}
+
+/* When dragging via pointer/touch */
+.bads-slider__track.is-dragging {
+    transition: none !important;
+    cursor: grabbing !important;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Slide
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.bads-slider__slide.is-active {
+    pointer-events: auto;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Controls Bar
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md, 16px);
+    margin-top: var(--space-xl, 32px);
+    position: relative;
+    z-index: 5;
+}
+
+.bads-slider__controls--start {
+    justify-content: flex-start;
+}
+
+.bads-slider__controls--end {
+    justify-content: flex-end;
+}
+
+.bads-slider__controls--between {
+    justify-content: space-between;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Navigation Arrows (Minimalist, No Circle, 60% -> 100% Opacity)
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--color-primary);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 6px;
+    margin: 0;
+    outline: none;
+    transition: opacity var(--transition-fast, 0.2s) ease, color var(--transition-fast, 0.2s) ease;
+}
+
+.bads-slider__arrow:hover:not(:disabled) {
+    background: transparent;
+    color: var(--color-primary);
+    opacity: 1;
+    box-shadow: none;
+    transform: none;
+}
+
+.bads-slider__arrow:active:not(:disabled) {
+    transform: none;
+    opacity: 1;
+}
+
+.bads-slider__arrow:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    opacity: 1;
+}
+
+.bads-slider__arrow:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.bads-slider__arrow .bads-icon {
+    width: 28px;
+    height: 28px;
+}
+
+/* Floating Arrows Modifier (optional layout) */
+.bads-slider--arrows-floating .bads-slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.bads-slider--arrows-floating .bads-slider__arrow--prev {
+    left: var(--space-md, 16px);
+}
+
+.bads-slider--arrows-floating .bads-slider__arrow--next {
+    right: var(--space-md, 16px);
+}
+
+.bads-slider--arrows-floating .bads-slider__arrow:hover:not(:disabled) {
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Pagination (Alternating Triangles: Down / Up)
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider__pagination {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bads-slider__dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-primary);
+    opacity: 0.55;
+    transition: opacity var(--transition-fast, 0.2s) ease, transform var(--transition-fast, 0.2s) ease;
+    outline: none;
+}
+
+.bads-slider__dot-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.bads-slider__dot-icon--active {
+    display: none;
+}
+
+.bads-slider__dot:hover:not(.is-active) {
+    opacity: 0.85;
+    transform: scale(1.1);
+}
+
+.bads-slider__dot:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+.bads-slider__dot.is-active {
+    opacity: 1;
+    cursor: default;
+    transform: scale(1.15);
+}
+
+.bads-slider__dot.is-active .bads-slider__dot-icon--default {
+    display: none;
+}
+
+.bads-slider__dot.is-active .bads-slider__dot-icon--active {
+    display: block;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Counter (01 / 04)
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider__counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--font-size-small, 14px);
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+}
+
+.bads-slider__counter-current {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold, 700);
+}
+
+.bads-slider__counter-divider {
+    color: var(--color-text-muted);
+    opacity: 0.6;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 768px) {
+    .bads-slider__controls {
+        margin-top: var(--space-lg, 24px);
+        gap: var(--space-sm, 12px);
+    }
+
+    .bads-slider__arrow {
+        padding: 4px;
+    }
+
+    .bads-slider__arrow .bads-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Banner Modifier (Hero, Editorial & Section Banners: 920x390, 16:9, etc.)
+|--------------------------------------------------------------------------
+*/
+
+.bads-slider--banner .bads-slider__viewport {
+    padding: 0;
+    margin: 0;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 8px 30px rgba(var(--brand-black-rgb, 15, 23, 42), 0.08);
+}
+
+.bads-slider--banner .bads-slider__controls {
+    margin-top: var(--space-sm, 12px);
+}
