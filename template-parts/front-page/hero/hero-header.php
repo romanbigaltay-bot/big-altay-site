@@ -79,6 +79,20 @@ $hero_features = array_slice($hero_features, 0, 2);
 <!-- Presentation & SEO Section -->
 <div class="bads-hero__presentation bads-stack bads-stack--lg">
 
+    <!-- Operator Badge -->
+    <?php
+    get_template_part(
+        'template-parts/ui/badge',
+        null,
+        [
+            'text'    => 'ТУРОПЕРАТОР «БОЛЬШОЙ АЛТАЙ»',
+            'variant' => 'primary',
+            'size'    => 'md',
+            'class'   => 'bads-hero__badge',
+        ]
+    );
+    ?>
+
     <!-- SEO Title & Subtitle via BADS UI Title -->
     <?php
     get_template_part(
