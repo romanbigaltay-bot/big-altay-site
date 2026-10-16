@@ -1,0 +1,61 @@
+.custom-format {
+    display: inline-block;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.custom-format.highlight-main {
+    background: #ffe1bfff !important;
+    padding: 8px 12px !important;
+    margin: 5px 0 !important;
+    border-radius: 5px !important;
+    line-height: 1.4;
+}
+blockquote {
+    border-left:5px solid #00A0E3 !important;
+    /* background-color: #ecececff; */
+    padding: 5px 5px 5px 35px;
+}
+.wp-faq-item-expanded {
+    position: relative;
+}
+.wp-faq-item-expanded::before {
+    content: ' - Раскрытый вопрос';
+    top: -20px;
+    left: 70px;
+    font-size: 11px;
+    position: absolute;
+}
+.wp-faq-item {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+.wp-faq-question, .wp-faq-answer {
+    position: relative;
+    padding-left: 20px;
+}
+.wp-faq-item::after {
+    content: 'Вопрос FAQ';
+    top: -20px;
+    left: 0;
+    font-size: 11px;
+    position: absolute;
+}
+.wp-faq-question::after {
+    content: '-';
+    top: 4px;
+    left: 0;
+    font-size: 12px;
+    position: absolute;
+}
+.wp-faq-answer::after {
+    content: '--';
+    top: 4px;
+    left: 0;
+    font-size: 12px;
+    position: absolute;
+}
