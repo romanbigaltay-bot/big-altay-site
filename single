@@ -1,0 +1,536 @@
+<?php get_header(); ?>
+
+<?php
+$imagePreview = get_field('sanatorium_promo');
+$sizePreview = 'header';
+
+$content = get_the_content();
+
+//getting numbers list
+$numbers = get_posts(array(
+    'post_type' => 'numbers',
+    'meta_query' => array(
+        array(
+            'key' => 'number_sanatorium',
+            'value' => get_the_ID(),
+            'compare' => 'LIKE'
+        )
+    )
+));
+
+//current object
+$postObject = get_queried_object();
+$customPostType = $postObject->post_type;
+?>
+
+    <main>
+        <section class="breadcrumbs">
+            <div class="container breadcrumbs__container">
+                <ul class="breadcrumbs__list">
+                    <li class="breadcrumbs__item">
+                        <a href="/" class="breadcrumbs__link">Главная</a>
+                    </li>
+                    <li class="breadcrumbs__item">
+                        <? if ($customPostType === 'rest-belokurikha') {
+                            print '<a href="/rest-belokurikha/" class="breadcrumbs__link">Отдых в Белокурихе</a>';
+                        } elseif ($customPostType === 'rest-altai-mountains') {
+                            print '<a href="/rest-altai-mountains/" class="breadcrumbs__link">Отдых в Горном Алтае</a>';
+                        } ?>
+                    </li>
+                    <li class="breadcrumbs__item"><?= the_title(); ?></li>
+                </ul>
+            </div>
+        </section>
+        <section class="headline">
+            <div class="container headline__container">
+                <section class="headline-primary headline-primary--flex headline-stars">
+                    <h1 class="headline-primary__headline"><?= the_title(); ?></h1>
+                    <div class="resort-stars resort-stars--desktop">
+                        <? for ($i = 1; $i <= get_field('sanatorium_stars'); $i++) { ?>
+                            <div class="resort-stars__star">
+                                <picture>
+                                    <source srcset="<?= get_template_directory_uri(); ?>/img/resort/star.svg"
+                                            type="image/webp">
+                                    <img src="<?= get_template_directory_uri(); ?>/img/resort/star.svg" alt="Рейтинг">
+                                </picture>
+                            </div>
+                        <? } ?>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="resort" data-params="tabs" id="tabs">
+            <section class="resort-header">
+                <div class="container resort-header__container">
+                    <nav class="resort-menu">
+                        <ul class="resort-menu__list">
+                            <li data=".about" class="resort-menu__item is-active">
+                                <a href="#" class="resort-menu__link">О базе</a>
+                            </li>
+                            <li data=".food" class="resort-menu__item">
+                                <a href="#" class="resort-menu__link">Питание</a>
+                            </li>
+                            <li data=".numbers" class="resort-menu__item">
+                                <a href="#" class="resort-menu__link">Проживание</a>
+                            </li>
+                            <li data=".gallery" class="resort-menu__item">
+                                <a href="#" class="resort-menu__link">Галерея</a>
+                            </li>
+                            <li data=".price" class="resort-menu__item">
+                                <a href="#" class="resort-menu__link">Цены</a>
+                            </li>
+                            <li data=".fun" class="resort-menu__item">
+                                <a href="#" class="resort-menu__link">Досуг</a>
+                            </li>
+                            <li data=".reviews" class="resort-menu__item">
+                                <a href="#" class="resort-menu__link">Отзывы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="resort-stars resort-stars--mobile">
+                        <? for ($i = 1; $i <= get_field('sanatorium_stars'); $i++) { ?>
+                            <div class="resort-stars__star">
+                                <picture>
+                                    <source srcset="<?= get_template_directory_uri(); ?>/img/resort/star.svg"
+                                            type="image/webp">
+                                    <img src="<?= get_template_directory_uri(); ?>/img/resort/star.svg" alt="Рейтинг">
+                                </picture>
+                            </div>
+                        <? } ?>
+                    </div>
+                    <div class="resort-header__btn">
+                        <button class="btn resort-header-btn animated-button">Забронировать
+                            <span class="headline-promo-btn__icon">
+                                <picture>
+                                    <source srcset="<?= get_template_directory_uri(); ?>/img/other/right-arrow.svg"
+                                            type="image/webp">
+                                    <img src="<?= get_template_directory_uri(); ?>/img/other/right-arrow.svg"
+                                         alt="Забронировать">
+                                </picture>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <div class="resort-body">
+                <div class="resort-tab about">
+                    <section class="resort-promo">
+                        <div class="container resort-promo__container">
+                            <div class="resort-promo__wrapper">
+                                <div class="resort-promo__image">
+                                    <img src="<?= wp_get_attachment_image_url($imagePreview, $sizePreview); ?>"
+                                         alt="<?= the_title(); ?>" class="resort-promo__img">
+                                </div>
+                                <? if ($content !== '') { ?>
+                                    <div class="resort-promo__description">
+                                        <?= the_content(); ?>
+                                    </div>
+                                <? } ?>
+                            </div>
+                        </div>
+                    </section>
+                    <? if (have_rows('sanatorium_about-photo')): ?>
+                        <section class="resort-about-gallery">
+                            <div class="container">
+                                <div class="resort-gallery__list resort-gallery__list--about">
+                                    <? $imageAboutNum = 0; ?>
+                                    <? while (have_rows('sanatorium_about-photo')) : the_row(); ?>
+                                        <?
+                                        $imageAbout = get_sub_field('sanatorium_about-photo-img');
+                                        $sizeAbout = 'large';
+                                        if ($imageAboutNum <= 4) { ?>
+                                            <div class="resort-gallery__item" data-fancybox="gallery"
+                                                 data-src="<?= wp_get_attachment_image_url($imageAbout, $sizeAbout); ?>">
+                                                <img loading="lazy"
+                                                     src="<?= wp_get_attachment_image_url($imageAbout, $sizeAbout); ?>"
+                                                     alt="<?= the_title(); ?>" class="resort-gallery__img">
+                                            </div>
+                                        <? } else { ?>
+                                            <div class="resort-gallery__item" data-fancybox="gallery"
+                                                 data-src="<?= wp_get_attachment_image_url($imageAbout, $sizeAbout); ?>"
+                                                 style="display:none;"></div>
+                                        <? }
+                                        $imageAboutNum++; ?>
+                                    <? endwhile; ?>
+                                </div>
+                                <div class="navigation navigation--gray resort-gallery__navigation">
+                                    <div class="navigation__prev resort-gallery__prev"></div>
+                                    <div class="navigation__next resort-gallery__next"></div>
+                                </div>
+                                <div class="swiper resort-gallery__slider">
+                                    <div class="swiper-wrapper">
+                                        <? while (have_rows('sanatorium_about-photo')) : the_row(); ?>
+                                            <?
+                                            $imageAbout = get_sub_field('sanatorium_about-photo-img');
+                                            $sizeAbout = 'large';
+                                            ?>
+                                            <div class="resort-gallery__slider-item swiper-slide"
+                                                 data-fancybox="slider"
+                                                 data-src="<?= wp_get_attachment_image_url($imageAbout, $sizeAbout); ?>">
+                                                <img loading="lazy"
+                                                     src="<?= wp_get_attachment_image_url($imageAbout, $sizeAbout); ?>"
+                                                     alt="<?= the_title(); ?>" class="resort-gallery__slider-img">
+                                            </div>
+                                        <? endwhile; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    <? endif; ?>
+                    <section class="resort-about-tabs">
+                        <div class="container">tabs</div>
+                    </section>
+                    <section class="resort-about-numbers">
+                        <div class="container">
+                            <div class="offers__wrapper--single-column">
+                                <h2 class="resort-about__title">Номера</h2>
+                                <? if ($numbers) { ?>
+                                    <div class="offers__list">
+                                        <? foreach ($numbers as $number) { ?>
+                                            <?
+                                            $imageNumber = get_field('number_promo', $number->ID);
+                                            $sizeNumber = 'large';
+                                            ?>
+                                            <div class="offer">
+                                                <div class="offer__image">
+                                                    <a href="<?= get_permalink($number->ID); ?>" class="offer__link">
+                                                        <img src="<?= wp_get_attachment_image_url($imageNumber, $sizeNumber); ?>"
+                                                             class="offer__img"
+                                                             alt="<?= get_the_title($number->ID); ?> - <?= the_title(); ?>">
+                                                    </a>
+                                                </div>
+                                                <div class="offer__body">
+                                                    <a href="<?= get_permalink($number->ID); ?>"
+                                                       class="offer__title"><?= get_the_title($number->ID); ?></a>
+                                                    <a href="<?= get_permalink($number->ID); ?>" class="offer__more">Подробнее</a>
+                                                </div>
+                                                <div class="offer__bottom">
+                                                    <div class="offer__price">
+                                                        от <? the_field('number_price', $number->ID); ?>
+                                                        <span>руб./сутки</span>
+                                                    </div>
+                                                    <button class="offer__reserve">Забронировать</button>
+                                                </div>
+                                            </div>
+                                        <? } ?>
+                                    </div>
+                                <? } else { ?>
+                                    Номера пока не добавлены
+                                <? } ?>
+                            </div>
+                        </div>
+                    </section>
+                    <? if (have_rows('sanatorium_reviews')): ?>
+                        <section class="resort-about-reviews main-reviews">
+                            <div class="container">
+                                <section class="headline-primary headline-primary--flex">
+                                    <h2 class="headline-primary__headline">Отзывы</h2>
+                                    <div class="navigation navigation--gray">
+                                        <div class="navigation__prev reviews__prev"></div>
+                                        <div class="navigation__next reviews__next"></div>
+                                    </div>
+                                </section>
+                                <div class="reviews__list swiper">
+                                    <div class="swiper-wrapper">
+                                        <? while (have_rows('sanatorium_reviews')) : the_row();
+                                            get_template_part('template-parts/content/reviews', get_post_format(),
+                                                array(
+                                                    'class' => 'swiper-slide',
+                                                ));
+                                        endwhile; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    <? endif; ?>
+                    <section class="resort-about-map">
+                        <div class="container"><h2 class="resort-about__title">Адрес</h2>
+                            <div class="resort-about-map__contacts">
+                                <div class="resort-about-map__address"><?php the_field('sanatorium_address'); ?></div>
+                                <div class="resort-about-map__check"><?php the_field('sanatorium_hour'); ?></div>
+                            </div>
+                            <div class="resort-about-map__map" id="map" style="width:100%;"></div>
+                        </div>
+                    </section>
+                </div>
+                <div class="resort-tab food" style="display: none">
+                    <section class="resort-food">
+                        <div class="container resort-food__container">
+                            <h2 class="resort-tab__title">Питание</h2>
+                            <?
+                            $foodText = get_field('sanatorium_food-text');
+                            if ($foodText != '') { ?>
+                                <div class="resort-tab__description"><?= $foodText; ?></div>
+                            <? } ?>
+                            <div class="resort-gallery__list resort-gallery__list--food">
+                                <? if (have_rows('sanatorium_food')): ?>
+                                    <? $imageFoodNum = 0; ?>
+                                    <? while (have_rows('sanatorium_food')) : the_row(); ?>
+                                        <?
+                                        $imageFood = get_sub_field('sanatorium_food-photo');
+                                        $sizeFood = 'large';
+                                        if ($imageFoodNum <= 4) { ?>
+                                            <div class="resort-gallery__item" data-fancybox="food"
+                                                 data-src="<?= wp_get_attachment_image_url($imageFood, $sizeFood); ?>">
+                                                <img loading="lazy"
+                                                     src="<?= wp_get_attachment_image_url($imageFood, $sizeFood); ?>"
+                                                     alt="Фотография" class="resort-gallery__img">
+                                            </div>
+                                        <? } else { ?>
+                                            <div class="resort-gallery__item" data-fancybox="food"
+                                                 data-src="<?= wp_get_attachment_image_url($imageFood, $sizeFood); ?>"
+                                                 style="display:none;"></div>
+                                        <? }
+                                        $imageFoodNum++; ?>
+                                    <? endwhile; ?>
+                                <? else:; ?>
+                                    Информации пока нет.
+                                <? endif; ?>
+                            </div>
+                            <div class="navigation navigation--gray resort-gallery__navigation">
+                                <div class="navigation__prev resort-gallery__prev"></div>
+                                <div class="navigation__next resort-gallery__next"></div>
+                            </div>
+                            <div class="swiper resort-gallery__slider">
+                                <div class="swiper-wrapper">
+                                    <? while (have_rows('sanatorium_food')) : the_row(); ?>
+                                        <?
+                                        $imageFood = get_sub_field('sanatorium_food-photo');
+                                        $sizeFood = 'large';
+                                        ?>
+                                        <div class="resort-gallery__slider-item swiper-slide"
+                                             data-fancybox="slider-food"
+                                             data-src="<?= wp_get_attachment_image_url($imageFood, $sizeFood); ?>">
+                                            <img loading="lazy"
+                                                 src="<?= wp_get_attachment_image_url($imageFood, $sizeFood); ?>"
+                                                 alt="<?= the_title(); ?>" class="resort-gallery__slider-img">
+                                        </div>
+                                    <? endwhile; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="resort-tab numbers" style="display: none">
+                    <section class="resort-numbers">
+                        <div class="container resort-numbers__container">
+                            <h2 class="resort-tab__title">Номера</h2>
+                            <?
+                            $numbersText = get_field('sanatorium_numbers');
+                            if ($numbersText != '') { ?>
+                                <div class="resort-tab__description"><?= $numbersText; ?></div>
+                            <? } ?>
+                            <div class="offers__wrapper--single-column">
+                                <? if ($numbers) { ?>
+                                    <div class="offers__list">
+                                        <? foreach ($numbers as $number) { ?>
+                                            <?
+                                            $imageNumber = get_field('number_promo', $number->ID);
+                                            $sizeNumber = 'large';
+                                            ?>
+                                            <div class="offer">
+                                                <div class="offer__image">
+                                                    <a href="<?= get_permalink($number->ID); ?>" class="offer__link">
+                                                        <img src="<?= wp_get_attachment_image_url($imageNumber, $sizeNumber); ?>"
+                                                             class="offer__img"
+                                                             alt="<?= get_the_title($number->ID); ?> - <?= the_title(); ?>">
+                                                    </a>
+                                                </div>
+                                                <div class="offer__body">
+                                                    <a href="<?= get_permalink($number->ID); ?>"
+                                                       class="offer__title"><?= get_the_title($number->ID); ?></a>
+                                                    <a href="<?= get_permalink($number->ID); ?>" class="offer__more">Подробнее</a>
+                                                </div>
+                                                <div class="offer__bottom">
+                                                    <div class="offer__price">
+                                                        от <? the_field('number_price', $number->ID); ?>
+                                                        <span>руб./сутки</span>
+                                                    </div>
+                                                    <button class="offer__reserve">Забронировать</button>
+                                                </div>
+                                            </div>
+                                        <? } ?>
+                                    </div>
+                                <? } else { ?>
+                                    Номера пока не добавлены
+                                <? } ?>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="resort-tab gallery" style="display: none">
+                    <section class="resort-gallery">
+                        <div class="container resort-gallery__container">
+                            <h2 class="resort-tab__title">Галерея</h2>
+                            <div class="resort-gallery__list">
+                                <? if (have_rows('sanatorium_gallery')): ?>
+                                    <? $imageGalleryNum = 0; ?>
+                                    <? while (have_rows('sanatorium_gallery')) : the_row(); ?>
+                                        <?
+                                        $imageGallery = get_sub_field('sanatorium_gallery-photo');
+                                        $sizeGallery = 'large';
+                                        if ($imageGalleryNum <= 9) { ?>
+                                            <div class="resort-gallery__item" data-fancybox="gallery-tab"
+                                                 data-src="<?= wp_get_attachment_image_url($imageGallery, $sizeGallery); ?>">
+                                                <img loading="lazy"
+                                                     src="<?= wp_get_attachment_image_url($imageGallery, $sizeGallery); ?>"
+                                                     alt="Фотография" class="resort-gallery__img">
+                                            </div>
+                                        <? } else { ?>
+                                            <div class="resort-gallery__item" data-fancybox="gallery-tab"
+                                                 data-src="<?= wp_get_attachment_image_url($imageGallery, $sizeGallery); ?>"
+                                                 style="display:none;"></div>
+                                        <? }
+                                        $imageGalleryNum++; ?>
+                                    <? endwhile; ?>
+                                <? else:; ?>
+                                    Фотографий пока нет.
+                                <? endif; ?>
+                            </div>
+                            <div class="navigation navigation--gray resort-gallery__navigation">
+                                <div class="navigation__prev resort-gallery__prev"></div>
+                                <div class="navigation__next resort-gallery__next"></div>
+                            </div>
+                            <div class="swiper resort-gallery__slider">
+                                <div class="swiper-wrapper">
+                                    <? while (have_rows('sanatorium_gallery')) : the_row(); ?>
+                                        <?
+                                        $imageGallery = get_sub_field('sanatorium_gallery-photo');
+                                        $sizeGallery = 'large';
+                                        ?>
+                                        <div class="resort-gallery__slider-item swiper-slide"
+                                             data-fancybox="slider-gallery"
+                                             data-src="<?= wp_get_attachment_image_url($imageGallery, $sizeGallery); ?>">
+                                            <img loading="lazy"
+                                                 src="<?= wp_get_attachment_image_url($imageGallery, $sizeGallery); ?>"
+                                                 alt="<?= the_title(); ?>" class="resort-gallery__slider-img">
+                                        </div>
+                                    <? endwhile; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="resort-tab price" style="display: none">
+                    <section class="resort-price">
+                        <div class="container resort-price__container">
+                            <h2 class="resort-tab__title">Цены на услуги</h2>
+                            <?
+                            $priceText = get_field('sanatorium_prices-text');
+                            if ($priceText != '') { ?>
+                                <div class="resort-tab__description"><?= $priceText; ?></div>
+                            <? } ?>
+                            <div class="resort-price__wrapper">
+                                <div class="resort-price-list">
+                                    <? if (have_rows('sanatorium_prices')): ?>
+                                        <? while (have_rows('sanatorium_prices')) : the_row(); ?>
+                                            <div class="resort-price-list__item">
+                                                <div class="resort-price-list__title"><?php the_sub_field('sanatorium_prices-title'); ?></div>
+                                                <div class="resort-price-list__value"><?php the_sub_field('sanatorium_prices-value'); ?></div>
+                                            </div>
+                                        <? endwhile; ?>
+                                    <? else:; ?>
+                                        Информации пока нет.
+                                    <? endif; ?>
+                                </div>
+                                <div class="resort-price-panel">
+                                    <?php
+                                    $priceFile = get_field('sanatorium_prices-file');
+                                    if ($priceFile): ?>
+                                        <a href="<?php echo $priceFile; ?>"
+                                           class="resort-price-panel__item resort-price-panel__item--btn"
+                                           target="_blank">Скачать полный Прайс-лист</a>
+                                    <?php endif; ?>
+
+                                    <? if (have_rows('sanatorium_prices-card')): ?>
+                                        <? while (have_rows('sanatorium_prices-card')) : the_row(); ?>
+                                            <div class="resort-price-panel__item"><?php the_sub_field('sanatorium_prices-card-title'); ?></div>
+                                        <? endwhile; ?>
+                                    <? endif; ?>
+                                </div>
+                            </div>
+                            <div class="resort-price-info">
+                                <div class="resort-tab__title">Документы, необходимые для заезда:</div>
+                                <? if (have_rows('sanatorium_prices-docs')): ?>
+                                    <? while (have_rows('sanatorium_prices-docs')) : the_row(); ?>
+                                        <div class="resort-price-info__title"><?php the_sub_field('sanatorium_prices-docs-title'); ?></div>
+                                        <div class="resort-price-info__text">
+                                            <?php the_sub_field('sanatorium_prices-docs-list'); ?>
+                                        </div>
+                                    <? endwhile; ?>
+                                <? else:; ?>
+                                    Информации пока нет.
+                                <? endif; ?>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="resort-tab fun" style="display: none">
+                    <section class="resort-fun">
+                        <div class="container resort-fun__container"><h2 class="resort-tab__title">Досуг</h2>
+                            <div class="resort-fun__list">
+                                <? if (have_rows('sanatorium_rest')): ?>
+                                    <? while (have_rows('sanatorium_rest')) : the_row(); ?>
+                                        <?
+                                        $imageRest = get_sub_field('sanatorium_rest-photo');
+                                        $sizeRest = 'large';
+                                        ?>
+                                        <div class="resort-fun__item">
+                                            <div class="resort-fun__image">
+                                                <img src="<?= wp_get_attachment_image_url($imageRest, $sizeRest); ?>"
+                                                     alt="<?php the_sub_field('sanatorium_rest-title'); ?>"
+                                                     class="resort-fun__img">
+                                            </div>
+                                            <div class="resort-fun__body">
+                                                <div class="resort-fun__title"><?php the_sub_field('sanatorium_rest-title'); ?></div>
+                                                <div class="resort-fun__text">
+                                                    <?php the_sub_field('sanatorium_rest-description'); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <? endwhile; ?>
+                                <? else:; ?>
+                                    Информации пока нет.
+                                <? endif; ?>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="resort-tab reviews" style="display: none">
+                    <section class="resort-reviews">
+                        <div class="container resort-reviews__container">
+                            <h2 class="resort-tab__title">Отзывы</h2>
+                            <div class="reviews__list">
+                                <? if (have_rows('sanatorium_reviews')): ?>
+                                    <? while (have_rows('sanatorium_reviews')) : the_row();
+                                        get_template_part('template-parts/content/reviews', get_post_format());
+                                    endwhile; ?>
+                                <? else:; ?>
+                                    Отзывов пока нет.
+                                <? endif; ?>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script>ymaps.ready(init);
+
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [<?php the_field('sanatorium_coordinates'); ?>],
+                zoom: 15,
+                controls: []
+            });
+            var myGeoObjects = [];
+            myGeoObjects = new ymaps.Placemark([<?php the_field('sanatorium_coordinates'); ?>], {balloonContentBody: '<?= the_title(); ?>',});
+            var clusterer = new ymaps.Clusterer({clusterDisableClickZoom: false, clusterOpenBalloonOnClick: false,});
+            clusterer.add(myGeoObjects);
+            myMap.geoObjects.add(clusterer);
+        }
+    </script>
+
+<?php get_footer(); ?>
