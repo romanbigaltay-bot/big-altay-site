@@ -286,6 +286,76 @@
 }
 
 /* ==========================================================
+   Media Slot (stacked card: image flush to card edges)
+   ========================================================== */
+
+.bads-card__media {
+    display: block;
+    width: 100%;
+}
+
+.bads-card--stacked .bads-card__media > a {
+    display: block;
+}
+
+/* ==========================================================
+   Body / Slots (UI component template-parts/ui/card.php)
+   ========================================================== */
+
+.bads-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.bads-card--stacked:not(.bads-card--padding-none) .bads-card__body {
+    padding: var(--space-lg);
+}
+
+.bads-card__kicker {
+    font-size: var(--font-size-caption, 0.75rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.bads-card__title {
+    margin: 0;
+    color: var(--color-text);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+}
+
+.bads-card__title--size-h3 { font-size: var(--font-size-h3); }
+.bads-card__title--size-h4 { font-size: var(--font-size-h4); }
+.bads-card__title--size-h5 { font-size: var(--font-size-body-lg); }
+
+.bads-card__title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.bads-card__text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body, 1.55);
+}
+
+@media (max-width: 768px) {
+    .bads-card--stacked:not(.bads-card--padding-none) .bads-card__body {
+        padding: var(--space-md);
+    }
+
+    .bads-card__title--size-h3 { font-size: var(--font-size-h4); }
+    .bads-card__title--size-h4 { font-size: var(--font-size-body-lg); }
+}
+
+/* ==========================================================
    News Card Item (for sidebars & widgets)
    ========================================================== */
 
