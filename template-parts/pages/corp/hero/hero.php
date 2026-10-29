@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) {
 $promo_image = get_field('corp_promo');
 ?>
 
-<section class="bads-section bads-section--lg bads-corp-hero">
+<section class="bads-section bads-section--lg bads-section--hero bads-corp-hero">
 
     <div class="bads-container">
 
@@ -50,8 +50,34 @@ $promo_image = get_field('corp_promo');
         );
         ?>
 
-        <div class="bads-split bads-split--wide bads-split--start" style="margin-top: var(--space-lg);">
+        <div class="bads-split bads-split--equal bads-split--start" style="margin-top: var(--space-lg);">
 
+            <!-- Левая часть: изображение 3:2 -->
+            <?php if ($promo_image) : ?>
+
+                <div>
+
+                    <?php
+                    get_template_part(
+                        'template-parts/ui/media',
+                        null,
+                        [
+                            'image'   => $promo_image,
+                            'size'    => 'large',
+                            'alt'     => get_the_title(),
+                            'fit'     => 'cover',
+                            'ratio'   => '3-2',
+                            'rounded' => '2xl',
+                            'loading' => 'eager',
+                        ]
+                    );
+                    ?>
+
+                </div>
+
+            <?php endif; ?>
+
+            <!-- Правая часть: бейдж, заголовок с разделителем, подзаголовок, кнопка -->
             <div>
 
                 <div class="bads-stack bads-stack--lg bads-stack--start">
@@ -101,30 +127,6 @@ $promo_image = get_field('corp_promo');
                 </div>
 
             </div>
-
-            <?php if ($promo_image) : ?>
-
-                <div>
-
-                    <?php
-                    get_template_part(
-                        'template-parts/ui/media',
-                        null,
-                        [
-                            'image'     => $promo_image,
-                            'size'      => 'large',
-                            'alt'       => get_the_title(),
-                            'fit'       => 'cover',
-                            'ratio'     => 'landscape',
-                            'rounded'   => '2xl',
-                            'loading'   => 'eager',
-                        ]
-                    );
-                    ?>
-
-                </div>
-
-            <?php endif; ?>
 
         </div>
 
