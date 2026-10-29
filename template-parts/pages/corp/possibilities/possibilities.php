@@ -46,7 +46,7 @@ if (!have_rows('corp_possibilities')) {
         );
         ?>
 
-        <div class="bads-grid bads-grid--3" style="margin-top: var(--space-xl);">
+        <div class="bads-grid bads-grid--2" style="margin-top: var(--space-xl);">
 
             <?php
             while (have_rows('corp_possibilities')) :
